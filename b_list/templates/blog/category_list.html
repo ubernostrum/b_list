@@ -31,7 +31,7 @@
 {% endfor %}
 </ul>
 
-<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}See all {{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }} in this category</a>{% endwith %}</p>
+<p class="read-more"><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}See all {{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }} in this category</a>{% endwith %}</p>
 
 {% endfor %}
 
