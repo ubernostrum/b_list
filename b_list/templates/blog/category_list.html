@@ -24,14 +24,14 @@
 
 <h2>{{ category.title }}</h2>
 
-<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}{{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }}</a>{% endwith %}</p>
-
 <p>Latest:</p>
 <ul>
 {% for entry in category.live_entries|slice:"3" %}
   <li><a href="{{ entry.get_absolute_url }}">{{ entry.title|typogrify }}</a></li>
 {% endfor %}
 </ul>
+
+<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}See all {{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }} in this category</a>{% endwith %}</p>
 
 {% endfor %}
 
