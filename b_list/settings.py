@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'blog',
     'contact_form',
     'typogrify',
+    'gunicorn',
 )
 
 from .local_settings import *

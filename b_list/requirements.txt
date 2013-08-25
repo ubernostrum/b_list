@@ -6,3 +6,4 @@ django-flashpolicies
 Markdown
 Pygments
 smartypants
+gunicorn
