@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}The B-List{% endblock %}
+
+{% block extrahead %}
+  <link rel="openid.server" href="http://www.myopenid.com/server">
+  <link rel="openid.delegate" href="http://ubernostrum.myopenid.com/">
+{% endblock %}
+
+{% block content %}
+
+{% load typogrify_tags %}
+
+{% for entry in latest %}
+
+<h2>{{ entry.title }}</h2>
+<p>Entry published {{ entry.pub_date|date:"F j, Y" }}</p>
+{{ entry.body_html|truncatewords_html:"90"|safe }}
+<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a></p>
+
+{% endfor %}
+
+{% endblock %}

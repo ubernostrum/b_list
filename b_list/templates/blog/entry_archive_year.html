@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %}Entries published in {{ year|date:"Y" }}{% endblock %}
+
+{% block extrahead %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block headlinks %}
+{% load next_previous %}
+{% get_next object_list pub_date as next %}
+{% get_previous object_list pub_date as previous %}
+  <link rel="up"
+        href="{% url 'blog_entry_archive_index' %}"
+        title="Latest entries"
+        type="text/html">
+{% if previous %}
+{% with previous.pub_date as prev_date %}
+  <link rel="prev"
+        href="{% url 'blog_entry_archive_year' year=prev_date|date:"Y" %}"
+        title="Entries published in {{ prev_date|date:"Y" }}"
+        type="text/html">
+{% endwith %}
+{% endif %}
+{% if next %}
+{% with next.pub_date as next_date %}
+  <link rel="next"
+        href="{% url 'blog_entry_archive_year' year=next_date|date:"Y" %}"
+        title="Entries published in {{ next_date|date:"Y" }}"
+        type="text/html">
+{% endwith %}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% load next_previous %}
+{% load typogrify_tags %}
+
+<h1>Entries published in {{ year|date:"Y" }}</h1>
+<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this year. See also: <a href="{% url 'blog_entry_archive_index' %}">latest entries</a>.</p>
+
+{% regroup object_list by pub_date|date:"F" as month_list %}
+
+{% for month in month_list %}
+
+<h2>{{ month.grouper }}</h2>
+
+<ul>
+  {% for entry in month.list %}
+  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endfor %}
+
+{% get_next object_list pub_date as next %}
+{% get_previous object_list pub_date as previous %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block title %}Page not found{% endblock %}
+
+
+{% block content %}
+
+<h1>Page not found</h1>
+<p class="meta">If you're looking for something in particular, try: <a href="{% url 'home' %}">home</a>, <a href="{% url 'blog_entry_archive_index' %}">latest weblog entries</a>.</p>
+
+
+<p>The page you're looking for either doesn&#8217;t exist, or has gone off to the great bit bucket in the sky. Check the link you followed to get here, and if it was something on this site please <a href="/contact/">contact me</a> and let me know about it.</p>
+
+{% endblock %}

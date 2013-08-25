@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="microid" content="d0714f36c065c0c9bd5c0797f690714f050715bc">
+  
+  <link rel="stylesheet" href="http://media.b-list.org/css/b-list-20110815.css" type="text/css">
+  
+{% block extrahead %}{% endblock %}
+  
+  <link rel="alternate"
+        title="Feed of latest entries" href="/feeds/entries/"
+        type="application/atom+xml">
+        
+{% block headlinks %}{% endblock %}
+</head>
+<body>
+  <div id="header">
+    <p>
+      <a href="/">The B-List</a> is the personal weblog of <a href="/about/">James Bennett</a>, a web developer in Lawrence, Kansas.
+    </p>
+  </div>
+
+  <div id="content">
+  {% block content %}{% endblock %}
+  </div>
+  <div id="footer">
+    <p><a href="/about/copyright/">Copyright &copy;</a> 2006-{% now "Y" %} <a href="/about/">James Bennett</a>. All rights reserved. Opinions expressed here are solely those of the author(s).</p>
+  </div>
+</body>
+</html>

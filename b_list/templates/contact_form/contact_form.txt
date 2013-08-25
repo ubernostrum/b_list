@@ -1,0 +1,3 @@
+{{ name }} ({{ email }}) wrote:
+
+{{ body|safe }}

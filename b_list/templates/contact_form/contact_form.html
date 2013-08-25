@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block title %}Contact the author{% endblock %}
+
+
+{% block content %}
+
+{% load typogrify_tags %}
+
+<h1>Contact the author</h1>
+
+<p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'blog_entry_archive_index' %}">weblog index</a>.</p>
+
+<p>{% filter typogrify %}Enter your name, email address and message, and click "Send". Your email address won't ever be sold or shared; it's required only so that I can reply to your message.{% endfilter %}</p>
+
+<form method="post" action="" id="contact-form">
+  <dl>
+    <dt><label for="id_name">Your name:</label>{% if form.name.errors %} <span class="error">{{ form.name.errors|join:", " }}</span>{% endif %}</dt>
+    <dd>{{ form.name }}</dd>
+    <dt><label for="id_email">Your email address:</label>{% if form.email.errors %} <span class="error">{{ form.email.errors|join:", " }}</span>{% endif %}</dt>
+    <dd>{{ form.email }}</dd>
+    <dt><label for="id_body">Your message:</label>{% if form.body.errors %} <span class="error">{{ form.body.errors|join:", " }}</span>{% endif %}</dt>
+    <dd>{{ form.body }}</dd>
+    <dd><input type="submit" value="Send" /></dd>
+  </dl>
+</form>
+
+{% endblock %}

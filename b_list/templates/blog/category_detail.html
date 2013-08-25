@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% block title %}Entries in category "{{ object.title }}"{% endblock %}
+
+
+{% block headlinks %}
+{{ block.super }}
+<link rel="up"
+      href="{% url 'blog_category_list' %}"
+      title="List of all categories"
+      type="text/html">
+<link rel="alternate"
+      href="/feeds/categories/{{ object.slug }}/"
+      title="Feed of entries in category '{{ object.title }}'"
+      type="application/atom+xml">
+{% endblock %}
+
+
+{% block content %}
+
+{% load typogrify_tags %}
+
+<h1>Entries in category &#8220;{{ object.title|typogrify }}&#8221;</h1>
+
+<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="/feeds/categories/{{ object.slug }}/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> feed of entries in this category</a> (<a href="/about/feeds/">learn about feeds</a>), <a href="{% url 'blog_category_list' %}">list of all entry categories</a>.</p>
+
+{% for entry in entries %}
+
+<h2>{{ entry.title|typogrify }}</h2>
+{{ entry.body_html|truncatewords_html:"90"|safe }}
+<p{% if not forloop.last %} class="read-more"{% endif %}><a rel="bookmark" href="{{ entry.get_absolute_url }}">Read full entry</a></p>
+
+{% endfor %}
+
+{% endblock %}

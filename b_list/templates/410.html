@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block title %}Gone{% endblock %}
+
+
+{% block content %}
+
+<h1>Gone</h1>
+<p class="meta">If you're looking for something in particular, try: <a href="{% url 'home' %}">home</a>, <a href="{% url 'blog_entry_archive_index' %}">latest weblog entries</a>.</p>
+
+
+<p>The page you're looking once existed, but is now gone. This is due to deliberate choice, and I probably don&#8217;t have the content in any form at this point.</p>
+
+{% endblock %}

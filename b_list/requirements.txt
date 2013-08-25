@@ -1,0 +1,8 @@
+Django==1.5.2
+django-contact-form
+django-flashpolicies
+-e hg+https://bitbucket.org/ubernostrum/blog#egg=blog
+-e git+https://github.com/ubernostrum/typogrify.git#egg=typogrify
+Markdown
+Pygments
+smartypants

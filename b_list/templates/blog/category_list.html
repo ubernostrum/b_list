@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block title %}Entry categories{% endblock %}
+
+
+{% block headlinks %}
+{{ block.super }}
+<link rel="up"
+      href="{% url 'blog_entry_archive_index' %}"
+      title="Weblog index"
+      type="text/html">
+{% endblock %}
+
+
+{% block content %}
+{% load typogrify_tags %}
+
+<h1>Entry categories</h1>
+
+<p class="meta">{{ object_list.count }} categor{{ object_list.count|pluralize:"y,ies" }} in use. See also: <a href="{% url 'blog_entry_archive_index' %}">latest entries</a>.</p>
+
+{% for category in object_list %}
+
+<h2>{{ category.title }}</h2>
+
+<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}{{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }}</a>{% endwith %}</p>
+
+<p>Latest:</p>
+<ul>
+{% for entry in category.live_entries|slice:"3" %}
+  <li><a href="{{ entry.get_absolute_url }}">{{ entry.title|typogrify }}</a></li>
+{% endfor %}
+</ul>
+
+{% endfor %}
+
+{% endblock %}

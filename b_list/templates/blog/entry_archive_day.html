@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block title %}Entries published on {{ day|date:"F j, Y" }}{% endblock %}
+
+{% block extrahead %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block headlinks %}
+{% load next_previous %}
+{% get_next object_list pub_date as next %}
+{% get_previous object_list pub_date as previous %}
+  <link rel="up"
+        href="{% url 'blog_entry_archive_month' year=day|date:"Y" month=day|date:"b" %}"
+        title="Entries published in {{ day|date:"F Y" }}"
+        type="text/html">
+{% if previous %}
+{% with previous.pub_date as prev_date %}
+  <link rel="prev"
+        href="{% url 'blog_entry_archive_day' year=prev_date|date:"Y" month=prev_date|date:"b" day=prev_date|date:"d" %}"
+        title="Entries published on {{ prev_date|date:"F j, Y" }}"
+        type="text/html">
+{% endwith %}
+{% endif %}
+{% if next %}
+{% with next.pub_date as next_date %}
+  <link rel="next"
+        href="{% url 'blog_entry_archive_day' year=next_date|date:"Y" month=next_date|date:"b" day=next_date|date:"d" %}"
+        title="Entries published on {{ next_date|date:"F j, Y" }}"
+        type="text/html">
+{% endwith %}
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+{% load typogrify_tags %}
+
+<h1>Entries published on {{ day|date:"F j, Y" }}</h1>
+
+<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published on this date. See also: <a href="{% url 'blog_entry_archive_month' year=day|date:"Y" month=day|date:"b"  %}">all entries published in {{ day|date:"F Y" }}</a>, <a href="{% url 'blog_entry_archive_index' %}">latest entries</a>.</p>
+
+{% for entry in object_list %}
+
+<h2>{{ entry.title|typogrify }}</h2>
+{{ entry.body_html|truncatewords_html:"90"|safe }}
+<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a></p>
+
+{% endfor %}
+
+{% get_next object_list pub_date as next %}
+{% get_previous object_list pub_date as previous %}
+
+{% endblock %}

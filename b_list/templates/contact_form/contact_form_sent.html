@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block title %}Message sent{% endblock %}
+
+
+{% block content %}
+
+{% load generic_markup %}
+
+<h1>Message sent</h1>
+
+<p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url coltrane_entry_archive_index %}">weblog index</a>.</p>
+
+{% filter apply_markup:"safe_markdown" %}
+
+Your message has been sent, and I'll look at it and try to get back to you as soon as possible.
+
+In the meantime, you might be interested in reading [some entries from my weblog]({% url coltrane_entry_archive_index %}).
+
+{% endfilter %}
+
+{% endblock %}

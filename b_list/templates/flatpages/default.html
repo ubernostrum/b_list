@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block headlinks %}
+<link rel="home"
+      href="/"
+      title="Home page"
+      type="text/html" />
+{% endblock %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+
+
+{% block content %}
+
+{% load typogrify_tags %}
+
+<h1>{{ flatpage.title }}</h1>
+
+<p class="meta">{% block flatpage_about %}{% endblock %}</p>
+
+{{ flatpage.content|typogrify }}
+
+{% endblock %}
