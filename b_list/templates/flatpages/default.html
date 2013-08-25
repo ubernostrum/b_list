@@ -13,12 +13,13 @@
 
 {% block content %}
 
+{% load markup %}
 {% load typogrify_tags %}
 
-<h1>{{ flatpage.title }}</h1>
+<h1>{{ flatpage.title|typogrify }}</h1>
 
 <p class="meta">{% block flatpage_about %}{% endblock %}</p>
 
-{{ flatpage.content|typogrify }}
+{{ flatpage.content|markup }}
 
 {% endblock %}
