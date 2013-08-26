@@ -1,6 +1,7 @@
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_NAME = os.path.split(os.path.dirname(os.path.abspath(__file__)))[-1]
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -17,9 +18,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-ROOT_URLCONF = 'b_list.urls'
+ROOT_URLCONF = '%s.urls' % PROJECT_NAME
 
-WSGI_APPLICATION = 'b_list.wsgi.application'
+WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
