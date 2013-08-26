@@ -6,13 +6,13 @@
 
 {% block content %}
 
-{% load generic_markup %}
+{% load markup %}
 
 <h1>Message sent</h1>
 
 <p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url coltrane_entry_archive_index %}">weblog index</a>.</p>
 
-{% filter apply_markup:"safe_markdown" %}
+{% filter markup %}
 
 Your message has been sent, and I'll look at it and try to get back to you as soon as possible.
 
