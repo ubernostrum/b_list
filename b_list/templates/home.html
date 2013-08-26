@@ -11,7 +11,7 @@
 
 {% load typogrify_tags %}
 
-{% for entry in latest %}
+{% for entry in latest|slice:5 %}
 
 <h2>{{ entry.title }}</h2>
 <p>Entry published {{ entry.pub_date|date:"F j, Y" }}</p>
