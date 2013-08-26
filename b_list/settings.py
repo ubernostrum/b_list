@@ -2,13 +2,6 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-LANGUAGE_CODE = 'en-us'
-SITE_ID = 1
-USE_I18N = False
-USE_L10N = False
-
-USE_TZ = True
-
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -26,7 +19,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'b_list.urls'
 
-WSGI_APPLICATION = 'b_list.application'
+WSGI_APPLICATION = 'b_list.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
