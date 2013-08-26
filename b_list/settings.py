@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.flatpages',
-    'django.contrib.staticfiles',
     'blog',
     'contact_form',
     'typogrify',
