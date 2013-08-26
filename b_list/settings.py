@@ -1,9 +1,7 @@
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+os.path.split(os.path.dirname(os.path.abspath(__file__)))[-1]
 
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
@@ -11,8 +9,6 @@ USE_I18N = False
 USE_L10N = False
 
 USE_TZ = True
-
-MEDIA_ROOT = ''
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -29,9 +25,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
-ROOT_URLCONF = 'b_list.urls'
+ROOT_URLCONF = '%s.urls' % PROJECT_NAME
 
-WSGI_APPLICATION = 'b_list.wsgi.application'
+WSGI_APPLICATION = '%s..application' % PROJECT_NAME
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
