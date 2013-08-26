@@ -27,7 +27,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = '%s.urls' % PROJECT_NAME
 
-WSGI_APPLICATION = '%s..application' % PROJECT_NAME
+WSGI_APPLICATION = '%s.application' % PROJECT_NAME
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),
