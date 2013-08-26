@@ -1,7 +1,7 @@
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-os.path.split(os.path.dirname(os.path.abspath(__file__)))[-1]
+PROJECT_NAME = os.path.split(os.path.dirname(os.path.abspath(__file__)))[-1]
 
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
