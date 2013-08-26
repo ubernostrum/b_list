@@ -14,7 +14,7 @@
 
 <p>{% filter typogrify %}Enter your name, email address and message, and click "Send". Your email address won't ever be sold or shared; it's required only so that I can reply to your message.{% endfilter %}</p>
 
-<form method="post" action="" id="contact-form">
+<form method="post" action="" id="contact-form">{% csrf_token %}
   <dl>
     <dt><label for="id_name">Your name:</label>{% if form.name.errors %} <span class="error">{{ form.name.errors|join:", " }}</span>{% endif %}</dt>
     <dd>{{ form.name }}</dd>
