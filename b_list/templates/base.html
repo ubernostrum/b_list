@@ -32,7 +32,7 @@
   {% load browserid %}
   {% browserid_info %}
     <p><a href="/about/copyright/">Copyright &copy;</a> 2006-{% now "Y" %} <a href="/about/">James Bennett</a>. All rights reserved. Opinions expressed here are solely those of the author(s).</p>
-    <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Logout' %}{% else %}{% browserid_login text='Login' color='dark' %}{% endif %}</p>
+    <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Sign out' %}{% else %}{% browserid_login text='Sign in' color='dark' %}{% endif %}</p>
   </div>
 
   {# django-browserid JS includes #}
