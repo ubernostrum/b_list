@@ -3,6 +3,7 @@ django-contact-form
 django-flashpolicies
 -e hg+https://bitbucket.org/ubernostrum/blog#egg=blog
 -e git+https://github.com/ubernostrum/typogrify.git#egg=typogrify
+-e git+https://github.com/ubernostrum/django-browserid.git#egg=django_browserid
 Markdown
 Pygments
 smartypants

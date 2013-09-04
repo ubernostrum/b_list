@@ -25,6 +25,7 @@ admin.autodiscover()
 
 urls = patterns('',
                 url(r'^admin/', include(admin.site.urls)),
+                url(r'^browserid/', include('django_browserid.urls')),
                 url(r'^$',
                     EntryArchiveIndex.as_view(
                         template_name='home.html',

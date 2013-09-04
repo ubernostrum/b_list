@@ -7,9 +7,8 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="microid" content="d0714f36c065c0c9bd5c0797f690714f050715bc">
   
-  <link rel="stylesheet" href="http://media.b-list.org/css/b-list-20130826.css" type="text/css">
+  <link rel="stylesheet" href="http://media.b-list.org/s/css/b-list-20130903.css" type="text/css">
   
 {% block extrahead %}{% endblock %}
   
@@ -30,8 +29,18 @@
   {% block content %}{% endblock %}
   </div>
   <div id="footer">
+  {% load browserid %}
+  {% browserid_info %}
     <p><a href="/about/copyright/">Copyright &copy;</a> 2006-{% now "Y" %} <a href="/about/">James Bennett</a>. All rights reserved. Opinions expressed here are solely those of the author(s).</p>
+    <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Logout' %}{% else %}{% browserid_login text='Login' color='dark' %}{% endif %}</p>
   </div>
+
+  {# django-browserid JS includes #}
+  <script src="http://media.b-list.org/s/js/jquery-1.9.1.min.js"></script>
+  <script src="https://login.persona.org/include.js"></script>
+  <script src="http://media.b-list.org/s/js/browserid.js"></script>
+
+  {# Stats #}
   <script type="text/javascript" src="http://include.reinvigorate.net/re_.js"></script>
   <script type="text/javascript">
     try {
