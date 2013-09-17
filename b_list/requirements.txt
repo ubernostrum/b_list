@@ -1,7 +1,7 @@
 Django==1.5.4
 django-contact-form
 django-flashpolicies
--e hg+https://bitbucket.org/ubernostrum/blog#egg=blog
+-e git+https://github.com/ubernostrum/blog.git#egg=blog
 -e git+https://github.com/ubernostrum/typogrify.git#egg=typogrify
 -e git+https://github.com/ubernostrum/django-browserid.git#egg=django_browserid
 Markdown
