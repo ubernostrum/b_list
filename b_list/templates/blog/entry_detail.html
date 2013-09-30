@@ -9,7 +9,7 @@
         href="{% url 'blog_entry_archive_day' year=object.pub_date|date:"Y" month=object.pub_date|date:"b" day=object.pub_date|date:"d" %}"
         title="Entries published on {{ object.pub_date|date:"F j, Y" }}"
         type="text/html">
-{% with object.get_previous as previous %}
+{% with object.get_previous_by_pub_date as previous %}
 {% if previous %}
   <link rel="prev"
         href="{{ previous.get_absolute_url }}"
@@ -17,7 +17,7 @@
         type="text/html">
 {% endif %}
 {% endwith %}
-{% with object.get_next as next %}
+{% with object.get_next_by_pub_date as next %}
 {% if next %}
   <link rel="next"
         href="{{ next.get_absolute_url }}"

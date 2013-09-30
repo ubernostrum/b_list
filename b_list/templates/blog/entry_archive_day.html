@@ -8,29 +8,36 @@
 {% endblock %}
 
 {% block headlinks %}
-{% load next_previous %}
-{% get_next object_list pub_date as next %}
-{% get_previous object_list pub_date as previous %}
   <link rel="up"
         href="{% url 'blog_entry_archive_month' year=day|date:"Y" month=day|date:"b" %}"
         title="Entries published in {{ day|date:"F Y" }}"
         type="text/html">
-{% if previous %}
-{% with previous.pub_date as prev_date %}
+
+{% with object_list|first as first %}
+  {% with first.get_previous_by_pub_date as previous %}
+    {% if previous %}
+      {% with previous.pub_date as prev_date %}
   <link rel="prev"
         href="{% url 'blog_entry_archive_day' year=prev_date|date:"Y" month=prev_date|date:"b" day=prev_date|date:"d" %}"
         title="Entries published on {{ prev_date|date:"F j, Y" }}"
         type="text/html">
+      {% endwith %}
+    {% endif %}
+  {% endwith %}
 {% endwith %}
-{% endif %}
-{% if next %}
-{% with next.pub_date as next_date %}
+
+{% with object_list|last as last %}
+  {% with last.get_next_by_pub_date as next %}
+    {% if next %}
+      {% with next.pub_date as next_date %}
   <link rel="next"
         href="{% url 'blog_entry_archive_day' year=next_date|date:"Y" month=next_date|date:"b" day=next_date|date:"d" %}"
         title="Entries published on {{ next_date|date:"F j, Y" }}"
         type="text/html">
+      {% endwith %}
+    {% endif %}
+  {% endwith %}
 {% endwith %}
-{% endif %}
 {% endblock %}
 
 
