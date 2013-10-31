@@ -18,6 +18,6 @@ personally interested in having my own site work.
 As such, if you find yourself needing to modify anything here -- and
 ideally you should just set up your own project if you want to use any
 of the applications here, including `my blog app
-<https://githib.com/ubernostrum/blog>`_ -- you should feel free (it's
+<https://github.com/ubernostrum/blog>`_ -- you should feel free (it's
 BSD-licensed), but I likely will be unresponsive to issues or pull
 requests.
