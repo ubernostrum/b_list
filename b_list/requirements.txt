@@ -1,4 +1,4 @@
-Django==1.5.4
+Django==1.5.5
 django-contact-form
 django-flashpolicies
 -e git+https://github.com/ubernostrum/blog.git#egg=blog
