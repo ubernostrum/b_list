@@ -1,10 +1,16 @@
-Django==1.5.5
-django-contact-form
-django-flashpolicies
--e git+https://github.com/ubernostrum/blog.git#egg=blog
--e git+https://github.com/ubernostrum/typogrify.git#egg=typogrify
--e git+https://github.com/ubernostrum/django-browserid.git#egg=django_browserid
-Markdown
-Pygments
-smartypants
-gunicorn
+git+git://github.com/ubernostrum/blog.git
+Django==1.8.3
+django-browserid==1.0.0
+django-contact-form==1.1
+django-flashpolicies==1.6
+django-flat-theme==0.9.5
+django-markupfield==1.3.5
+django-postgrespool==0.3.0
+django-project-portfolio==1.1
+dj-database-url==0.3.0
+docutils==0.12
+gunicorn==19.3.0
+Markdown==2.6.2
+Pygments==2.0.2
+smartypants==1.8.6
+typogrify==2.0.7
