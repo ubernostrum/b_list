@@ -120,3 +120,7 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
 SECRET_KEY = os.environ['SECRET_KEY']
+
+SITE_URL = 'http://www.b-list.org'
+LOGIN_REDIRECT_URL = '/'
+BROWSERID_CREATE_USER = False

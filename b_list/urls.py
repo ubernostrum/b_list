@@ -20,7 +20,6 @@ admin.autodiscover()
 
 urls = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^browserid/', include('django_browserid.urls')),
     url(r'^$',
         EntryArchiveIndex.as_view(
             template_name='home.html',
@@ -32,6 +31,7 @@ urls = [
     url(r'^weblog/categories/', include('blog.urls.categories')),
     url(r'^weblog/', include('blog.urls.entries')),
     url(r'^crossdomain.xml$', no_access),
+    url(r'', include('django_browserid.urls')),
 ]
 
 
@@ -44,7 +44,6 @@ legacy = [
     url(r'^weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         views.EntryDetailRedirect.as_view()),
     url(r'^media/(?P<path>.*)$', views.MediaRedirect.as_view()),
-    url(r'', include('django_browserid.urls')),
 ]
 
 
