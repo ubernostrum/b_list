@@ -1,4 +1,4 @@
-git+git://github.com/ubernostrum/blog.git
+git+git://github.com/ubernostrum/blog.git@1.1
 Django==1.8.3
 django-browserid==1.0.0
 django-contact-form==1.1
