@@ -7,10 +7,11 @@ blog <http://www.b-list.org>`_.
 
 This repository exists mainly to provide a consistent point for me to
 deploy from. It may or may not be useful to you, and does not actually
-include *everything* -- the ``local_settings.py`` file is missing, for
-example -- and is designed with my personal needs in mind.
+include *everything* -- some settings are specified via environment
+variables, for example -- and is designed with my personal needs in
+mind.
 
-I run on Django 1.5 and Python 3.3; other Django and/or Python
+I run on Django 1.8 and Python 3.4; other Django and/or Python
 versions may work, but are not tested or supported. In fact, this
 project as a whole is not really "supported" except insofar as I'm
 personally interested in having my own site work.
