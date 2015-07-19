@@ -44,6 +44,7 @@ legacy = [
     url(r'^weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$',
         views.EntryDetailRedirect.as_view()),
     url(r'^media/(?P<path>.*)$', views.MediaRedirect.as_view()),
+    url(r'', include('django_browserid.urls')),
 ]
 
 
