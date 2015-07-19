@@ -42,18 +42,7 @@
        Opinions expressed here are solely those of the author(s).
     </p>
 
-  {% load browserid %}
-  {% browserid_info %}
-    <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Sign out' %}{% else %}{% browserid_login text='Sign in' color='dark' %}{% endif %}</p>
-  </div>
-
   <div id="header"><!-- the fact that this element has to exist makes me sad. --></div>
-
-  {# django-browserid JS includes #}
-  <script src="http://media.b-list.org/s/js/jquery-1.9.1.min.js"></script>
-  <script src="https://login.persona.org/include.js"></script>
-  <script src="http://media.b-list.org/s/js/api.js"></script>
-  <script src="http://media.b-list.org/s/js/browserid.js"></script>
 
 </body>
 </html>

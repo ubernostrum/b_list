@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'flat',
     'django.contrib.admin',
     'django.contrib.flatpages',
-    'django_browserid',
     'blog',
     'contact_form',
     'typogrify',
@@ -47,7 +46,7 @@ INSTALLED_APPS = (
 )
 
 AUTHENTICATION_BACKENDS = (
-    'django_browserid.auth.BrowserIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -121,8 +120,3 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
 SECRET_KEY = os.environ['SECRET_KEY']
-
-# Required by django-browserid.
-SITE_URL = 'http://www.b-list.org'
-LOGIN_REDIRECT_URL = '/'
-BROWSERID_CREATE_USER = False
