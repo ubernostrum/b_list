@@ -45,6 +45,7 @@
     {% load browserid %}
     {% browserid_info %}
     <p class="authentication">{% if user.is_authenticated %}Logged in as {{ user }} / {% browserid_logout text='Sign out' %}{% else %}{% browserid_login text='Sign in' color='dark' %}{% endif %}</p>
+
   </div>
 
   <div id="header"><!-- the fact that this element has to exist makes me sad. --></div>
