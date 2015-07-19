@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'flat',
     'django.contrib.admin',
     'django.contrib.flatpages',
+    'django_browserid',
     'blog',
     'contact_form',
     'typogrify',
