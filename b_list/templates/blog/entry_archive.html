@@ -20,7 +20,7 @@
 
 <h1>Latest entries</h1>
 
-<p class="meta">See also: <a href="{% url 'blog_category_list' %}">entry categories</a>,  <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> feed of weblog entries</a> (<a href="/about/feeds/">learn about feeds</a>).</p>
+<p class="meta">See also: <a href="{% url 'blog_category_list' %}">entry categories</a>,  <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> feed of weblog entries</a>.</p>
 
 {% for entry in latest|slice:"5" %}
 
@@ -28,7 +28,7 @@
 <p>Published {{ entry.pub_date|date:"F j, Y" }}</p>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
 
-<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a></p>
+<p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
 
 {% endfor %}
 

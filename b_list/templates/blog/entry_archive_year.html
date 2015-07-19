@@ -48,7 +48,7 @@
 
 <h2>{{ month.grouper }}</h2>
 
-<ul>
+<ul class="archive-list">
   {% for entry in month.list %}
   <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a></li>
   {% endfor %}

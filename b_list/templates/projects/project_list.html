@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block title %}Projects{% endblock %}
+
+{% block extrahead %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block headlinks %}
+  <link rel="up"
+        href="/"
+        title="Home"
+        type="text/html">
+{% endblock %}
+
+{% block content %}
+
+{% load markup %}
+
+<h1>Projects</h1>
+
+<p class="meta">See also: <a href="{% url 'blog_entry_archive_index' %}">weblog</a>, <a href="/about/">about the author</a>.</p>
+
+{% for project in object_list %}
+
+<h2>{{ project.name }}</h2>
+{{ project.description|markup }}
+
+<p class="meta"><a href="{{ project.get_absolute_url }}">Details</a></p>
+
+{% endfor %}
+
+{% endblock %}

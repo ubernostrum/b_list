@@ -46,7 +46,7 @@
 
 <h2>{{ entry.title|typogrify }}</h2>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
-<p{% if not forloop.last %} class="read-more"{% endif %}><a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a></p>
+<p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
 
 {% endfor %}
 

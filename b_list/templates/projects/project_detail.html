@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ object.name }}{% endblock %}
+
+{% block extrahead %}
+  <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block headlinks %}
+  <link rel="up"
+        href="{% url 'projects_project_list' %}"
+        title="Projects"
+        type="text/html">
+{% endblock %}
+
+{% block content %}
+
+{% load markup %}
+
+<h1>{{ object.name }}</h1>
+
+<p class="meta">See also: <a href="{% url 'projects_project_list' %}">Full list of projects</a>.</p>
+
+{{ object.description|markup }}
+
+{% with object.latest_version as latest_version %}
+
+<table class="project-info">
+  <caption>Project information:</caption>
+  <tbody>
+    <tr>
+      <th scope="row">Latest version</th>
+      <td>{{ latest_version.version }} ({{ latest_version.release_date|date:"F j, Y" }})</td>
+    </tr>
+    <tr>
+      <th scope="row">License</th>
+      <td>{{ latest_version.license }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Packages</th>
+      <td><a href="{{ object.package_link }}">on the Python Package Index</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Documentation</th>
+      <td><a href="{{ object.documentation_link }}">on Read the Docs</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Repository</th>
+      <td><a href="{{ object.repository_link }}">on GitHub</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Unit tests</th>
+      <td><a href="{{ object.tests_link }}">on Travis CI</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Test status</th>
+      <td><img src="{{ object.tests_link }}.svg?branch=master"></td>
+    </tr>
+  </tbody>
+</table>
+
+{% endwith %}
+
+{% endblock %}
