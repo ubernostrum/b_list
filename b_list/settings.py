@@ -97,7 +97,7 @@ TEMPLATE_DIRS = (
 )
 
 ADMINS = (
-    ('James Bennett', 'james@b-list.org'),
+    ('James Bennett', os.environ['MANAGER_EMAIL']),
 )
 
 MANAGERS = ADMINS
