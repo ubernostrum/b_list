@@ -100,9 +100,9 @@ ADMINS = (
     ('James Bennett', 'james@b-list.org'),
 )
 
-DEFAULT_FROM_EMAIL = 'django@b-list.org'
-
 MANAGERS = ADMINS
+
+DEFAULT_FROM_EMAIL = 'django@b-list.org'
 
 ALLOWED_HOSTS = ['*']
 LANGUAGE_CODE = 'en-us'
@@ -113,6 +113,14 @@ USE_L10N = False
 
 STATIC_URL = 'http://media.b-list.org/'
 MEDIA_URL = 'http://media.b-list.org/m/'
+
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Required by django-browserid.
 SITE_URL = 'http://www.b-list.org'
