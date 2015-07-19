@@ -31,7 +31,6 @@ urls = [
     url(r'^weblog/categories/', include('blog.urls.categories')),
     url(r'^weblog/', include('blog.urls.entries')),
     url(r'^crossdomain.xml$', no_access),
-    url(r'', include('django_browserid.urls')),
 ]
 
 
