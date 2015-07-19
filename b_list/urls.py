@@ -15,9 +15,6 @@ from flashpolicies.views import no_access
 from . import views
 
 
-admin.autodiscover()
-
-
 urls = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',
