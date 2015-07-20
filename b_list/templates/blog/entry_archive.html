@@ -25,7 +25,6 @@
 {% for entry in latest|slice:"5" %}
 
 <h2>{{ entry.title }}</h2>
-<p>Published {{ entry.pub_date|date:"F j, Y" }}</p>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
 
 <p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
