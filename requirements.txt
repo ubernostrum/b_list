@@ -1,4 +1,4 @@
-#git+git://github.com/ubernostrum/blog.git@20150720.1
+git+git://github.com/ubernostrum/blog.git@20150720.1
 Django==1.8.3
 django-contact-form==1.1
 django-flashpolicies==1.6
