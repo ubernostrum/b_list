@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
-  <link rel="stylesheet" href="http://media.b-list.org/css/b-list-20150718.css" type="text/css">
+  <link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/408510/b-list-20150817.css" type="text/css">
   
 {% block extrahead %}{% endblock %}
   
@@ -18,11 +18,11 @@
         
 {% block headlinks %}{% endblock %}
 </head>
-<body>
+<body class="{% block bodyclass %}{% endblock %}">
   <div id="content">
   {% block content %}{% endblock %}
   </div>
-  <div id="sidebar">
+  <div id="footer">
     <nav>
       <ul>
         <li><a href="/weblog/">Weblog</a></li>
@@ -32,16 +32,18 @@
       </ul>
     </nav>
 
-    <p id="sidebar-meta" class="meta">
-      The B-List is the personal site of James Bennett, a web developer in Lawrence, Kansas.
-    </p>
+    <div id="footer-meta">
+      <p id="footer-about">
+        The B-List is the personal site of James Bennett, a web developer in Lawrence, Kansas.
+      </p>
 
-    <p id="sidebar-copyright" class="meta">
-       <a href="/about/copyright/">Copyright &copy;</a> 2006-{% now "Y" %}
-       <a href="/about/">James Bennett</a>. All rights reserved.
-       Opinions expressed here are solely those of the author(s).
-    </p>
-
+      <p id="footer-copyright">
+         <a href="/about/copyright/">Copyright &copy;</a> 2006-{% now "Y" %}
+         <a href="/about/">James Bennett</a>. All rights reserved.
+         Opinions expressed here are solely those of the author(s).
+      </p>
+    </div>
+    <p class="clear"></p>
   </div>
 
   <div id="header"><!-- the fact that this element has to exist makes me sad. --></div>

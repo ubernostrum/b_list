@@ -1,3 +1,5 @@
 {% extends "flatpages/default.html" %}
 
+{% block bodyclass %}short{% endblock %}
+
 {% block flatpage_about %}See also: <a href="/about/">the author of this site</a>, <a href="{% url 'blog_entry_archive_index' %}">entries</a>, <a href="/contact/">contact the author</a>.{% endblock %}
