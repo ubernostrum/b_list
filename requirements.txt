@@ -11,3 +11,4 @@ Markdown==2.6.2
 Pygments==2.0.2
 smartypants==1.8.6
 typogrify==2.0.7
+jinja2==2.8
