@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "projects/base_project.html" %}
 
 
 {% block title %}{{ object.name }}{% endblock %}
@@ -14,13 +14,11 @@
         type="text/html">
 {% endblock %}
 
-{% block bodyclass %}short{% endblock %}
-
 {% block content %}
 
 {% load markup %}
 
-<h1>{{ object.name }}</h1>
+<h1><span class="glyphicon glyphicon-heart small" aria-hidden="true"></span><br />{{ object.name }}</h1>
 
 <p class="meta">See also: <a href="{% url 'projects_project_list' %}">Full list of projects</a>.</p>
 
@@ -28,7 +26,7 @@
 
 {% with object.latest_version as latest_version %}
 
-<table class="project-info">
+<table class="table table-striped">
   <caption>Project information:</caption>
   <tbody>
     <tr>

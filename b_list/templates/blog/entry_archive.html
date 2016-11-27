@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base_blog.html" %}
 
 
 {% block title %}Latest entries{% endblock %}
@@ -18,7 +18,7 @@
 
 {% load typogrify_tags %}
 
-<h1>Latest entries</h1>
+<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Latest entries</h1>
 
 <p class="meta">See also: <a href="{% url 'blog_category_list' %}">entry categories</a>,  <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> feed of weblog entries</a>.</p>
 
@@ -27,7 +27,7 @@
 <h2>{{ entry.title }}</h2>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
 
-<p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
+<p class="list-meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
 
 {% endfor %}
 

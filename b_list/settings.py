@@ -4,7 +4,6 @@ import dj_database_url
 
 
 DEBUG = False
-TEMPLATE_DEBUG = DEBUG
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -14,10 +13,23 @@ DATABASES = {
 
 DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'debug': DEBUG
+        }
+    }
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
@@ -44,19 +56,11 @@ INSTALLED_APPS = (
     'typogrify',
     'gunicorn',
     'projects',
+    'widget_tweaks',
 )
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.tz",
-    "django.contrib.messages.context_processors.messages",
 )
 
 LOGGING = {
@@ -92,10 +96,6 @@ ROOT_URLCONF = 'b_list.urls'
 
 WSGI_APPLICATION = 'b_list.wsgi.application'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
-
 ADMINS = (
     ('James Bennett', os.environ['MANAGER_EMAIL']),
 )
@@ -110,7 +110,7 @@ SITE_ID = 1
 TIME_ZONE = 'America/Chicago'
 USE_I18N = False
 USE_L10N = False
-PREPEND_WWW = True
+#PREPEND_WWW = True
 
 STATIC_URL = 'http://media.b-list.org/'
 MEDIA_URL = 'http://media.b-list.org/m/'

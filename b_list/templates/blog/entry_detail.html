@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base_blog.html" %}
 
 
 {% block title %}{{ object.title }}{% endblock %}
@@ -31,7 +31,7 @@
 {% block content %}
 {% load typogrify_tags %}
 
-<h1>{{ object.title|typogrify }}</h1>
+<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />{{ object.title|typogrify }}</h1>
 
 <p class="meta">Published <a href="{% url 'blog_entry_archive_day' year=object.pub_date|date:"Y" month=object.pub_date|date:"b" day=object.pub_date|date:"d" %}">{{ object.pub_date|date:"F j, Y" }}</a>. Filed under:
   

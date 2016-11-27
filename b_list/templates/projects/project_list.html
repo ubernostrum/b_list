@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "projects/base_project.html" %}
 
 
 {% block title %}Projects{% endblock %}
@@ -14,21 +14,35 @@
         type="text/html">
 {% endblock %}
 
+{% block bodyclass %}short {{ block.super }}{% endblock %}  
+
 {% block content %}
 
 {% load markup %}
 
-<h1>Projects</h1>
+<h1><span class="glyphicon glyphicon-heart small" aria-hidden="true"></span><br />Projects</h1>
 
 <p class="meta">See also: <a href="{% url 'blog_entry_archive_index' %}">weblog</a>, <a href="/about/">about the author</a>.</p>
 
-{% for project in object_list %}
-
-<h2>{{ project.name }}</h2>
-{{ project.description|markup }}
-
-<p class="meta"><a href="{{ project.get_absolute_url }}">Details</a></p>
-
-{% endfor %}
+<table class="table table-striped">
+  <caption>All projects (click a project for details):</caption>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Latest version</th>
+      <th scope="col">License</th>
+  </thead>
+  <tbody>
+    {% for project in object_list %}
+    {% with project.latest_version as latest_version %}
+    <tr>
+      <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</td>
+      <td>{{ latest_version.version }} ({{ latest_version.release_date|date:"F j, Y" }})</td>
+      <td>{{ latest_version.license }}</td>
+    </tr>
+    {% endwith %}
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

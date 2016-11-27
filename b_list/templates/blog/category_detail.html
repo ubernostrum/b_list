@@ -21,7 +21,7 @@
 
 {% load typogrify_tags %}
 
-<h1>Entries in category &#8220;{{ object.title|typogrify }}&#8221;</h1>
+<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entries in category &#8220;{{ object.title|typogrify }}&#8221;</h1>
 
 {% with object.live_entries.all as entries %}
 
@@ -31,7 +31,7 @@
 
 <h2>{{ entry.title|typogrify }}</h2>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
-<p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
+<p class="list-meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
 
 {% endfor %}
 

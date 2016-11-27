@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base_blog.html" %}
 
 
 {% block title %}Entries published in {{ month|date:"F Y" }}{% endblock %}
@@ -33,20 +33,21 @@
 {% endif %}
 {% endblock %}
 
+{% block bodyclass %}short {{ block.super }}{% endblock %}  
+
 {% block content %}
 
 {% load typogrify_tags %}
 
-<h1>Entries published in {{ month|date:"F Y" }}</h1>
+<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entries published in {{ month|date:"F Y" }}</h1>
 
 <p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this month. See also: <a href="{% url 'blog_entry_archive_year' year=month|date:"Y" %}">all entries published in {{ month|date:"Y" }}</a>, <a href="{% url 'blog_entry_archive_index' %}">latest entries</a>.</p>
 
 {% for entry in object_list %}
 
 <h2>{{ entry.title|typogrify }}</h2>
-<p>Published {{ entry.pub_date|date:"F j, Y" }}</p>
 {{ entry.body_html|truncatewords_html:"90"|safe }}
-<p class="meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
+<p class="list-meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
 
 {% endfor %}
 

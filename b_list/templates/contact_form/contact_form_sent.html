@@ -4,13 +4,13 @@
 {% block title %}Message sent{% endblock %}
 
 
-{% block bodyclass %}short{% endblock %}
+{% block bodyclass %}contact short{% endblock %}
 
 {% block content %}
 
 {% load markup %}
 
-<h1>Message sent</h1>
+<h1><span class="glyphicon glyphicon-send small" aria-hidden="true"></span><br />Message sent</h1>
 
 <p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'blog_entry_archive_index' %}">weblog index</a>.</p>
 
