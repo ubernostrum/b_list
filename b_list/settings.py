@@ -110,7 +110,7 @@ SITE_ID = 1
 TIME_ZONE = 'America/Chicago'
 USE_I18N = False
 USE_L10N = False
-#PREPEND_WWW = True
+PREPEND_WWW = True
 
 STATIC_URL = 'http://media.b-list.org/'
 MEDIA_URL = 'http://media.b-list.org/m/'
