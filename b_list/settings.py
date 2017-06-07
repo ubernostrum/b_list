@@ -35,6 +35,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -48,7 +49,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'flat',
     'django.contrib.admin',
     'django.contrib.flatpages',
     'blog',
@@ -103,6 +103,10 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DEFAULT_FROM_EMAIL = 'django@b-list.org'
+
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
 
 ALLOWED_HOSTS = ['*']
 LANGUAGE_CODE = 'en-us'
