@@ -14,6 +14,8 @@
         type="text/html">
 {% endblock %}
 
+{% block bodyclass %}short {{ block.super }}{% endblock %}  
+
 {% block content %}
 
 {% load markup %}
