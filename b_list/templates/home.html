@@ -7,10 +7,11 @@
 {% block content %}
 
 <h1><span class="glyphicon glyphicon-home small" aria-hidden="true"></span><br />Latest entries</h1>
+<p class="meta">See also: <a href="/about/">about the author</a>, <a href="/about/colophon/">about this site</a>.</p>
 
 <ul>
-  {% for entry in latest|slice:"10" %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title }}</a>, published {{ entry.pub_date|date:"F j, Y" }}</li>
+  {% for entry in latest|slice:"15" %}
+  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
   {% endfor %}
 </ul>
 
