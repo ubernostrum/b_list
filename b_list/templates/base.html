@@ -2,47 +2,42 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-
   <title>{% block title %}{% endblock %}</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Patua+One" rel="stylesheet"> 
-    <link href="http://media.b-list.org/css/b-list-20180207.css" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Patua+One" rel="stylesheet"> 
+  <link href="http://media.b-list.org/css/b-list-20180207.css" rel="stylesheet">
 {% block extrahead %}{% endblock %}
-  
   <link rel="alternate"
         title="Feed of latest entries" href="/feeds/entries/"
         type="application/atom+xml">
-        
 {% block headlinks %}{% endblock %}
 </head>
 <body class="{% block bodyclass %}{% endblock %}">
-    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
-      <div class="container">
-	<div id="navbar" class="navbar-collapse">
-  	  <ul class="nav navbar-nav">
-	    <li id="home-link"><a href="/">Home</a></li>
-	    <li id="weblog-link"><a href="/weblog/">Weblog</a></li>
-	    <li id="projects-link"><a href="/projects/">Projects</a></li>
-	    <li id="about-link"><a href="/about/">About</a></li>
-	    <li id="contact-link"><a href="/contact/">Contact</a></li>
-	  </ul>
-	</div>
-      </div>
-    </nav>
-    <div id="content" class="container">
-      <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
-	{% block content %}{% endblock %}
+  <a class="skip" href="#content">Skip to content</a>
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+    <div class="container">
+      <div id="navbar" class="navbar-collapse">
+  	<ul class="nav navbar-nav">
+	  <li id="home-link"><a href="/">Home</a></li>
+	  <li id="weblog-link"><a href="/weblog/">Weblog</a></li>
+	  <li id="projects-link"><a href="/projects/">Projects</a></li>
+	  <li id="about-link"><a href="/about/">About</a></li>
+	  <li id="contact-link"><a href="/contact/">Contact</a></li>
+	</ul>
       </div>
     </div>
-    <footer class="footer footer-inverse">
-      <div class="container">
-	<p class="footer-brand"><a href="/about/copyright/">Copyright &copy; 2006-{% now "Y" %}</a> <a href="/about/">James Bennett</a>, a software developer living in California.</p>
-	<p class="footer-brand">Opinions expressed here are solely those of the author.</p>
-      </div>
-    </footer>
-    <script type="text/javascript" src="http://media.b-list.org/js/bootstrap.min.js" />
+  </nav>
+  <div id="content" class="container">
+    <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+  <footer class="footer footer-inverse">
+    <div class="container">
+      <p class="footer-brand"><a href="/about/copyright/">Copyright &copy; 2006-{% now "Y" %}</a> <a href="/about/">James Bennett</a>, a software developer living in California.</p>
+      <p class="footer-brand">Opinions expressed here are solely those of the author.</p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="http://media.b-list.org/js/bootstrap.min.js" />
 </body>
 </html>
