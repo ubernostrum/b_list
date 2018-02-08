@@ -6,12 +6,25 @@
 
 {% block content %}
 
-<h1><span class="glyphicon glyphicon-home small" aria-hidden="true"></span><br />Latest entries</h1>
-<p class="meta">See also: <a href="/about/">about the author</a>, <a href="/about/colophon/">about this site</a>.</p>
+{% load typogrify_tags %}
 
+<h1><span class="glyphicon glyphicon-home small" aria-hidden="true"></span><br />Home</h1>
+<p class="meta">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> weblog feed</a>, <a href="/about/colophon/">about this site</a>.</p>
+
+<p>Hi. I'm James, a software engineer living in California. I prefer
+to work in <a href="https://www.python.org/">Python</a>,
+with <a href="https://www.djangoproject.com/">the Django web
+framework</a>, but I've been known to use other things when
+appropriate. I also maintain several <a href="/projects/">open-source
+libraries and applications</a>, and <a href="/weblog/">write from time
+to time</a>. You can find out more <a href="/about/">about me</a>,
+or <a href="/contact/">get in touch</a>, if you'd like..</p>
+
+<p class="list-meta"></p>
+<h2>Latest weblog entries</h2>
 <ul>
-  {% for entry in latest|slice:"15" %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
+  {% for entry in latest|slice:"10" %}
+  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
   {% endfor %}
 </ul>
 
