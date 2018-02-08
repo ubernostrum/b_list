@@ -6,17 +6,12 @@
 
 {% block content %}
 
-{% load typogrify_tags %}
-
 <h1><span class="glyphicon glyphicon-home small" aria-hidden="true"></span><br />Latest entries</h1>
-<p class="meta">See also: <a href="/about/">about the author</a>, <a href="/about/colophon/">about this site</a>.</p>
 
-{% for entry in latest|slice:"5" %}
-
-<h2>{{ entry.title }}</h2>
-{{ entry.body_html|truncatewords_html:"90"|safe }}
-<p class="list-meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
-
-{% endfor %}
+<ul>
+  {% for entry in latest|slice:"10" %}
+  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title }}</a>, published {{ entry.pub_date|date:"F j, Y" }}</li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
