@@ -19,13 +19,13 @@
 
 {% block content %}
 
-{% load typogrify_tags %}
+{% load static typogrify_tags %}
 
 <h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entries in category &#8220;{{ object.title|typogrify }}&#8221;</h1>
 
 {% with object.live_entries.all as entries %}
 
-<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="/feeds/categories/{{ object.slug }}/" type="application/atom+xml" rel="alternate"><img src="http://media.b-list.org/img/feed-icon-10x10.png" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'blog_category_list' %}">list of all entry categories</a>.</p>
+<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="/feeds/categories/{{ object.slug }}/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'blog_category_list' %}">list of all entry categories</a>.</p>
 
 {% for entry in entries %}
 
