@@ -3,7 +3,7 @@ import os
 import dj_database_url
 
 
-DEBUG = False
+DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -32,11 +32,11 @@ TEMPLATES = [
 ]
 
 MIDDLEWARE = (
+    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -123,7 +123,7 @@ SITE_ID = 1
 TIME_ZONE = 'America/Chicago'
 USE_I18N = False
 USE_L10N = False
-PREPEND_WWW = True
+PREPEND_WWW = False
 
 STATIC_URL = '/static/'
 MEDIA_URL = 'http://media.b-list.org/m/'
