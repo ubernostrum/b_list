@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html>
 <head>
@@ -5,7 +6,7 @@
   <title>{% block title %}{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Merriweather|Patua+One" rel="stylesheet"> 
-  <link href="http://media.b-list.org/css/b-list-20180208.css" rel="stylesheet">
+  <link href="{% static "b-list/css/b-list-20180208.css" %}" rel="stylesheet">
 {% block extrahead %}{% endblock %}
   <link rel="alternate"
         title="Feed of latest entries" href="/feeds/entries/"
@@ -38,6 +39,6 @@
       <p class="footer-brand">Opinions expressed here are solely those of the author.</p>
     </div>
   </footer>
-  <script type="text/javascript" src="http://media.b-list.org/js/bootstrap.min.js" />
+  <script type="text/javascript" src="{% static "b-list/js/bootstrap.min.js" %}" />
 </body>
 </html>
