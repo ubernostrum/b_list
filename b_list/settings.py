@@ -31,7 +31,8 @@ TEMPLATES = [
     }
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.flatpages',
+    'django.contrib.staticfiles',
     'blog',
     'contact_form',
     'typogrify',
@@ -92,6 +94,13 @@ LOGGING = {
     }
 }
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 ROOT_URLCONF = 'b_list.urls'
 
 WSGI_APPLICATION = 'b_list.wsgi.application'
@@ -116,7 +125,7 @@ USE_I18N = False
 USE_L10N = False
 PREPEND_WWW = True
 
-STATIC_URL = 'http://media.b-list.org/'
+STATIC_URL = '/static/'
 MEDIA_URL = 'http://media.b-list.org/m/'
 
 EMAIL_USE_TLS = True
