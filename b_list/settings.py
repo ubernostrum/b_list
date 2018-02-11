@@ -36,9 +36,9 @@ TEMPLATES = [
 
 MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'csp.middleware.CSPMiddleware',    
+    'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
