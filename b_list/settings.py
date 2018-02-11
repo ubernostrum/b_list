@@ -148,7 +148,7 @@ CSP_NONE = ["'none'"]
 
 CSP_FONT_SRC = [CSP_SELF, 'https://fonts.gstatic.com']
 CSP_FORM_ACTION = [CSP_SELF]
-CSP_IMG_SRC = [CSP_SELF]
+CSP_IMG_SRC = [CSP_SELF, 'https://travis-ci.org']
 CSP_SCRIPT_SRC = [CSP_SELF, 'https://code.jquery.com']
 CSP_STYLE_SRC = [CSP_SELF, 'https://fonts.googleapis.com']
 CSP_REQUIRE_SRI_FOR = ['script', 'style']
