@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Basic Django settings.
 # ------------------------------------------------------------------------------
 
-DEBUG = False
+DEBUG = bool(int(os.getenv('DJANGO_DEBUG', 0)))
 
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
@@ -131,8 +131,10 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = not DEBUG
 SECURE_SSL_HOST = 'www.b-list.org'
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
 
 
 # Miscellaneous settings.
@@ -148,5 +150,5 @@ USE_I18N = False
 USE_L10N = False
 SITE_ID = 1
 MEDIA_URL = 'http://media.b-list.org/m/'
-PREPEND_WWW = True
+PREPEND_WWW = not DEBUG
 
