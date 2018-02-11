@@ -9,6 +9,7 @@ jinja2==2.10
 smartypants==2.0.1
 Markdown==2.6.11
 django-widget-tweaks==1.4.1
+django-csp==3.3
 
 django-contact-form[akismet]==1.4.1
 django-flashpolicies==1.9

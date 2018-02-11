@@ -5,8 +5,13 @@
   <meta charset="UTF-8" />
   <title>{% block title %}{% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather|Patua+One" rel="stylesheet"> 
-  <link href="{% static "b-list/css/b-list-20180208.css" %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Patua+One"
+	rel="stylesheet"
+	integrity="sha256-vAl+ui0MJxGFNc+JYuW/i2BxcjRPXLmlZXLZgQGfyAU="
+	crossorigin="anonymous" /> 
+  <link href="{% static "b-list/css/b-list-20180208.css" %}"
+	rel="stylesheet"
+	integrity="sha256-rjWF/VhdiMQ5Unc1vzyXZi61jZ/FGLHBjOaGfVzLlqg=" />
 {% block extrahead %}{% endblock %}
   <link rel="alternate"
         title="Feed of latest entries" href="/feeds/entries/"
@@ -39,6 +44,12 @@
       <p class="footer-brand">Opinions expressed here are solely those of the author.</p>
     </div>
   </footer>
-  <script type="text/javascript" src="{% static "b-list/js/bootstrap.min.js" %}" />
+  <script type="text/javascript"
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+  <script type="text/javascript"
+	  src="{% static "b-list/js/bootstrap.min.js" %}"
+	  integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8="></script>
 </body>
 </html>

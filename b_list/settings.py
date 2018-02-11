@@ -37,6 +37,7 @@ TEMPLATES = [
 MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'csp.middleware.CSPMiddleware',    
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -137,6 +138,26 @@ CSRF_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
+
+
+# CSP.
+# ------------------------------------------------------------------------------
+
+CSP_SELF = "'self'"
+CSP_NONE = ["'none'"]
+
+CSP_FONT_SRC = [CSP_SELF, 'https://fonts.gstatic.com']
+CSP_FORM_ACTION = [CSP_SELF]
+CSP_IMG_SRC = [CSP_SELF]
+CSP_SCRIPT_SRC = [CSP_SELF, 'https://code.jquery.com']
+CSP_STYLE_SRC = [CSP_SELF, 'https://fonts.googleapis.com']
+
+CSP_CHILD_SRC = CSP_NONE
+CSP_CONNECT_SRC = CSP_NONE
+CSP_FRAME_ANCESTORS = CSP_NONE
+CSP_FRAME_SRC = CSP_NONE
+CSP_MEDIA_SRC = CSP_NONE
+CSP_OBJECT_SRC = CSP_NONE
 
 
 # Miscellaneous settings.
