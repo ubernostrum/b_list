@@ -151,6 +151,7 @@ CSP_FORM_ACTION = [CSP_SELF]
 CSP_IMG_SRC = [CSP_SELF]
 CSP_SCRIPT_SRC = [CSP_SELF, 'https://code.jquery.com']
 CSP_STYLE_SRC = [CSP_SELF, 'https://fonts.googleapis.com']
+CSP_REQUIRE_SRI_FOR = ['script', 'style']
 
 CSP_CHILD_SRC = CSP_NONE
 CSP_CONNECT_SRC = CSP_NONE
