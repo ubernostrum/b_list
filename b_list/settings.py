@@ -3,15 +3,18 @@ import os
 import dj_database_url
 
 
-DEBUG = False
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DATABASES = {
-    'default': dj_database_url.config(),
-}
 
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
+# Basic Django settings.
+# ------------------------------------------------------------------------------
+
+DEBUG = False
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
+DATABASES['default']['CONN_MAX_AGE'] = 500
+
 
 TEMPLATES = [
     {
@@ -94,44 +97,56 @@ LOGGING = {
     }
 }
 
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 ROOT_URLCONF = 'b_list.urls'
-
 WSGI_APPLICATION = 'b_list.wsgi.application'
+SECRET_KEY = os.environ['SECRET_KEY']
+ALLOWED_HOSTS = ['*']
 
-ADMINS = (
-    ('James Bennett', os.environ['MANAGER_EMAIL']),
-)
 
-MANAGERS = ADMINS
+# Email.
+# ------------------------------------------------------------------------------
 
 DEFAULT_FROM_EMAIL = 'django@b-list.org'
-
-X_FRAME_OPTIONS = 'DENY'
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
-
-ALLOWED_HOSTS = ['*']
-LANGUAGE_CODE = 'en-us'
-SITE_ID = 1
-TIME_ZONE = 'America/Chicago'
-USE_I18N = False
-USE_L10N = False
-PREPEND_WWW = True
-
-STATIC_URL = '/static/'
-MEDIA_URL = 'http://media.b-list.org/m/'
-
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = os.environ['EMAIL_HOST']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 
-SECRET_KEY = os.environ['SECRET_KEY']
+
+# Static files.
+# ------------------------------------------------------------------------------
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+
+# Security.
+# ------------------------------------------------------------------------------
+
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SECURE_SSL_HOST = 'www.b-list.org'
+
+
+# Miscellaneous settings.
+# ------------------------------------------------------------------------------
+
+ADMINS = (
+    ('James Bennett', os.environ['MANAGER_EMAIL']),
+)
+MANAGERS = ADMINS
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'America/Chicago'
+USE_I18N = False
+USE_L10N = False
+SITE_ID = 1
+MEDIA_URL = 'http://media.b-list.org/m/'
+PREPEND_WWW = True
+
