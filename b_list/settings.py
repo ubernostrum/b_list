@@ -15,7 +15,6 @@ DATABASES = {}
 DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['CONN_MAX_AGE'] = 500
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -99,10 +98,10 @@ LOGGING = {
     }
 }
 
-ROOT_URLCONF = 'b_list.urls'
-WSGI_APPLICATION = 'b_list.wsgi.application'
-SECRET_KEY = os.environ['SECRET_KEY']
 ALLOWED_HOSTS = ['*']
+ROOT_URLCONF = 'b_list.urls'
+SECRET_KEY = os.environ['SECRET_KEY']
+WSGI_APPLICATION = 'b_list.wsgi.application'
 
 
 # Email.
@@ -129,17 +128,21 @@ STATIC_URL = '/static/'
 # Security.
 # ------------------------------------------------------------------------------
 
-X_FRAME_OPTIONS = 'DENY'
-SECURE_CONTENT_TYPE_NOSNIFF = True
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = not DEBUG
+
+REFERRER_POLICY = 'same-origin'
+
 SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_HOST = 'www.b-list.org'
 SECURE_SSL_REDIRECT = not DEBUG
-CSRF_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SECURE = not DEBUG
-SESSION_COOKIE_HTTPONLY = True
-REFERRER_POLICY = 'same-origin'
+
+X_FRAME_OPTIONS = 'DENY'
 
 
 # CSP.
@@ -170,11 +173,15 @@ ADMINS = (
     ('James Bennett', os.environ['MANAGER_EMAIL']),
 )
 MANAGERS = ADMINS
+
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'America/Chicago'
 USE_I18N = False
 USE_L10N = False
-SITE_ID = 1
-MEDIA_URL = 'http://media.b-list.org/m/'
-PREPEND_WWW = not DEBUG
 
+TIME_ZONE = 'America/Chicago'
+
+SITE_ID = 1
+
+MEDIA_URL = 'http://media.b-list.org/m/'
+
+PREPEND_WWW = not DEBUG
