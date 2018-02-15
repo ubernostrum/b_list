@@ -8,6 +8,9 @@
 {% endblock %}
 
 {% block headlinks %}
+  <link rel="canonical"
+        href="{{ protocol }}://{{ site }}{% url 'projects_project_list' %}">
+  
   <link rel="up"
         href="/"
         title="Home"

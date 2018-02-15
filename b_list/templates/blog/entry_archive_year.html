@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block headlinks %}
+  <link rel="canonical"
+	href="{{ protocol }}://{{ site }}{% url 'blog_entry_archive_year' year=year|date:"Y" %}">
 {% load next_previous %}
 {% get_next object_list pub_date as next %}
 {% get_previous object_list pub_date as previous %}

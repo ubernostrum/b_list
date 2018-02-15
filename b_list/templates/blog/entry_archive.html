@@ -8,6 +8,9 @@
 {% endblock %}
 
 {% block headlinks %}
+  <link rel="canonical"
+        href="{{ protocol }}://{{ site}}{% url 'blog_entry_archive_index' %}">
+  
   <link rel="up"
         href="/"
         title="Home"

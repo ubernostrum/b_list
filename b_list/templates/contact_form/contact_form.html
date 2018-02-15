@@ -4,6 +4,16 @@
 
 {% block title %}Get in touch{% endblock %}
 
+{% block headlinks %}
+<link rel="canonical"
+      href="{{ protocol }}://{{ site }}{% url 'contact_form' %}">
+
+  <link rel="up"
+        href="/"
+        title="Home"
+        type="text/html">
+{% endblock %}
+
 {% block content %}
 
 {% load widget_tweaks %}

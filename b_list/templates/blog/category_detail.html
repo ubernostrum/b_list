@@ -6,14 +6,18 @@
 
 {% block headlinks %}
 {{ block.super }}
-<link rel="up"
-      href="{% url 'blog_category_list' %}"
-      title="List of all categories"
-      type="text/html">
-<link rel="alternate"
-      href="/feeds/categories/{{ object.slug }}/"
-      title="Feed of entries in category '{{ object.title }}'"
-      type="application/atom+xml">
+  <link rel="canonical"
+        href="{{ protocol }}://{{ site}}{% url 'blog_category_detail' slug=object.slug %}">
+
+  <link rel="up"
+        href="{% url 'blog_category_list' %}"
+        title="List of all categories"
+        type="text/html">
+
+  <link rel="alternate"
+        href="/feeds/categories/{{ object.slug }}/"
+        title="Feed of entries in category '{{ object.title }}'"
+        type="application/atom+xml">
 {% endblock %}
 
 

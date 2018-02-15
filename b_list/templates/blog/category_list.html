@@ -6,10 +6,13 @@
 
 {% block headlinks %}
 {{ block.super }}
-<link rel="up"
-      href="{% url 'blog_entry_archive_index' %}"
-      title="Weblog index"
-      type="text/html">
+  <link rel="canonical"
+        href="{{ protocol }}://{{ site }}{% url 'blog_category_list' %}">
+
+  <link rel="up"
+        href="{% url 'blog_entry_archive_index' %}"
+        title="Weblog index"
+        type="text/html">
 {% endblock %}
 
 

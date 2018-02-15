@@ -3,6 +3,15 @@
 
 {% block title %}Message sent{% endblock %}
 
+{% block headlinks %}
+<link rel="canonical"
+      href="{{ protocol }}://{{ site }}{% url 'contact_form_sent' %}">
+
+  <link rel="up"
+        href="/"
+        title="Home"
+        type="text/html">
+{% endblock %}
 
 {% block bodyclass %}contact{% endblock %}
 
