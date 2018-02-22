@@ -28,7 +28,7 @@ or <a href="/contact/">get in touch</a>, if you'd like.</p>
 <p class="list-meta"></p>
 <h2>Latest weblog entries</h2>
 <ul>
-  {% for entry in latest|slice:"10" %}
+  {% for entry in latest|slice:"5" %}
   <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
   {% endfor %}
 </ul>
