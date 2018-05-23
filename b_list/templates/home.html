@@ -16,6 +16,7 @@
 <h1><span class="glyphicon glyphicon-home small" aria-hidden="true"></span><br />Hi.</h1>
 <p class="meta">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> weblog feed</a>, <a href="/about/colophon/">about this site</a>.</p>
 
+{% filter typogrify %}
 <p>I'm James, a software engineer living in California. I mostly
 work in <a href="https://www.python.org/">Python</a>,
 with <a href="https://www.djangoproject.com/">the Django web
@@ -26,7 +27,8 @@ time</a>. You can find out more <a href="/about/">about me</a>,
 or <a href="/contact/">get in touch</a>, if you'd like.</p>
 
 <p>If you're looking for someone with a ton of experience with Django,
-you can <a href="/weblog/2018/apr/11/hire/">hire me</a>.</p>
+  you can <a href="/weblog/2018/apr/11/hire/">hire me</a>.</p>
+{% endfilter %}
 
 <p class="list-meta"></p>
 <h2>Latest weblog entries</h2>
