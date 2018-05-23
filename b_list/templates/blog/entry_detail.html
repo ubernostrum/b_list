@@ -38,7 +38,7 @@
 
 <p class="meta">Published: <a href="{% url 'blog_entry_archive_day' year=object.pub_date|date:"Y" month=object.pub_date|date:"b" day=object.pub_date|date:"d" %}">{{ object.pub_date|date:"F j, Y" }}</a>. Filed under:
   
-{% for category in object.categories.all %}<a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}.
+{% for category in object.categories.all %}<a href="{{ category.get_absolute_url }}">{{ category.title|typogrify }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}.
   
 {{ object.body_html|safe }}
 
