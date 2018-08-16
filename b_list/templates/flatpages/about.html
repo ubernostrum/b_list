@@ -22,7 +22,7 @@
 
 <h1><span class="glyphicon glyphicon-user small" aria-hidden="true"></span><br />{{ flatpage.title|typogrify }}</h1>
 
-<p class="meta">{% block flatpage_about %}See also: <a href="/weblog/2018/apr/11/hire/">hire me</a>, <a href="{% url 'contact_form' %}">contact me</a>, <a href="/about/colophon/">colophon</a>, <a href="{% url 'blog_entry_archive_index' %}">weblog</a>.{% endblock %}</p>
+<p class="meta">{% block flatpage_about %}See also: <a href="{% url 'contact_form' %}">contact me</a>, <a href="/about/colophon/">colophon</a>, <a href="{% url 'blog_entry_archive_index' %}">weblog</a>.{% endblock %}</p>
 
 {{ flatpage.content|markup }}
 
