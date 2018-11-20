@@ -28,11 +28,12 @@
 <p class="meta">See also: <a href="{% url 'blog_entry_archive_index' %}">weblog</a>, <a href="/about/">about the author</a>.</p>
 
 <table class="table table-striped">
-  <caption>All projects (click a project for details):</caption>
+  <caption>All projects (click a project name for details):</caption>
   <thead>
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Latest version</th>
+      <th scope="col">Released</th>
       <th scope="col">License</th>
   </thead>
   <tbody>
@@ -40,7 +41,12 @@
     {% with project.latest_version as latest_version %}
     <tr>
       <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</td>
-      <td>{{ latest_version.version }} ({{ latest_version.release_date|date:"F j, Y" }})</td>
+      <td>
+	<a href="https://pypi.org/project/{{ project.name }}/{{ latest_version.version }}/">
+	  {{ latest_version.version }}
+	</a>
+      </td>
+      <td>{{ latest_version.release_date|date:"F j, Y"  }}</td>
       <td>{{ latest_version.license }}</td>
     </tr>
     {% endwith %}
