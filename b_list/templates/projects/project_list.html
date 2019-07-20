@@ -9,7 +9,7 @@
 
 {% block headlinks %}
   <link rel="canonical"
-        href="{{ protocol }}://{{ site }}{% url 'projects_project_list' %}">
+        href="{{ protocol }}://{{ site }}{% url 'projects:list' %}">
   
   <link rel="up"
         href="/"
@@ -25,7 +25,7 @@
 
 <h1><span class="glyphicon glyphicon-heart small" aria-hidden="true"></span><br />Projects</h1>
 
-<p class="meta">See also: <a href="{% url 'blog_entry_archive_index' %}">weblog</a>, <a href="/about/">about the author</a>.</p>
+<p class="meta">See also: <a href="{% url 'entries:index' %}">weblog</a>, <a href="/about/">about the author</a>.</p>
 
 <table class="table table-striped">
   <caption>All projects (click a project name for details):</caption>

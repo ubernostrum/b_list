@@ -6,7 +6,7 @@
         href="{{ protocol }}://{{ site }}{{ flatpage.url }}">
 
   <link rel="home"
-        href="/"
+        href="{% url 'home' %}"
         title="Home page"
         type="text/html">
 {% endblock %}

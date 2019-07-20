@@ -5,8 +5,8 @@ functionality.
 """
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.template.response import TemplateResponse
+from django.urls import reverse
 from django.views.generic.base import RedirectView
 
 

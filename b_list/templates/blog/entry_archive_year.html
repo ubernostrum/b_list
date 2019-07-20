@@ -9,18 +9,18 @@
 
 {% block headlinks %}
   <link rel="canonical"
-	href="{{ protocol }}://{{ site }}{% url 'blog_entry_archive_year' year=year|date:"Y" %}">
+	href="{{ protocol }}://{{ site }}{% url 'entries:year' year=year|date:"Y" %}">
 {% load next_previous %}
 {% get_next object_list pub_date as next %}
 {% get_previous object_list pub_date as previous %}
   <link rel="up"
-        href="{% url 'blog_entry_archive_index' %}"
+        href="{% url 'entries:index' %}"
         title="Latest entries"
         type="text/html">
 {% if previous %}
 {% with previous.pub_date as prev_date %}
   <link rel="prev"
-        href="{% url 'blog_entry_archive_year' year=prev_date|date:"Y" %}"
+        href="{% url 'entries:year' year=prev_date|date:"Y" %}"
         title="Entries published in {{ prev_date|date:"Y" }}"
         type="text/html">
 {% endwith %}
@@ -28,7 +28,7 @@
 {% if next %}
 {% with next.pub_date as next_date %}
   <link rel="next"
-        href="{% url 'blog_entry_archive_year' year=next_date|date:"Y" %}"
+        href="{% url 'entries:year' year=next_date|date:"Y" %}"
         title="Entries published in {{ next_date|date:"Y" }}"
         type="text/html">
 {% endwith %}
@@ -42,7 +42,7 @@
 {% load typogrify_tags %}
 
 <h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entries published in {{ year|date:"Y" }}</h1>
-<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this year. See also: <a href="{% url 'blog_entry_archive_index' %}">latest entries</a>.</p>
+<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this year. See also: <a href="{% url 'entries:index' %}">latest entries</a>.</p>
 
 {% for entry in object_list %}
 

@@ -9,7 +9,7 @@
       href="{{ protocol }}://{{ site }}{% url 'contact_form' %}">
 
   <link rel="up"
-        href="/"
+        href="{% url 'home' %}"
         title="Home"
         type="text/html">
 {% endblock %}
@@ -21,7 +21,7 @@
 
 <h1><span class="glyphicon glyphicon-envelope small" aria-hidden="true"></span><br />Get in touch</h1>
 
-<p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'blog_entry_archive_index' %}">weblog index</a>.</p>
+<p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'entries:index' %}">weblog index</a>.</p>
 
 <p>{% filter typogrify %}Enter your name, email address and message, and click "Send". Your email address won't ever be sold or shared; it's required only so that I can reply to your message.{% endfilter %}</p>
 

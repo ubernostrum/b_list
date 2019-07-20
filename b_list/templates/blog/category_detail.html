@@ -7,15 +7,15 @@
 {% block headlinks %}
 {{ block.super }}
   <link rel="canonical"
-        href="{{ protocol }}://{{ site}}{% url 'blog_category_detail' slug=object.slug %}">
+        href="{{ protocol }}://{{ site }}{% url 'categories:category' slug=object.slug %}">
 
   <link rel="up"
-        href="{% url 'blog_category_list' %}"
+        href="{% url 'categories:index' %}"
         title="List of all categories"
         type="text/html">
 
   <link rel="alternate"
-        href="/feeds/categories/{{ object.slug }}/"
+        href="{% url 'feeds:category' slug=object.slug %}"
         title="Feed of entries in category '{{ object.title }}'"
         type="application/atom+xml">
 {% endblock %}
@@ -29,7 +29,7 @@
 
 {% with object.live_entries.all as entries %}
 
-<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="/feeds/categories/{{ object.slug }}/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'blog_category_list' %}">list of all entry categories</a>.</p>
+<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="{% url 'feeds:category' slug=object.slug %}" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'categories:index' %}">list of all entry categories</a>.</p>
 
 {% for entry in entries %}
 
