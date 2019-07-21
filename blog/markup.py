@@ -9,10 +9,8 @@ def markup(text):
     """
     return typogrify(
         markdown(text,
-                 lazy_ol=False,
                  output_format='html5',
                  extensions=['abbr',
                              'codehilite',
                              'fenced_code',
-                             'sane_lists',
-                             'smart_strong']))
+                             'sane_lists']))
