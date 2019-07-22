@@ -11,14 +11,12 @@ include *everything* -- some settings are specified via environment
 variables, for example -- and is designed with my personal needs in
 mind.
 
-I run on Django 1.11 and Python 3.6; other Django and/or Python
+I run on Django 2.2 and Python 3.6; other Django and/or Python
 versions may work, but are not tested or supported. In fact, this
 project as a whole is not really "supported" except insofar as I'm
 personally interested in having my own site work.
 
 As such, if you find yourself needing to modify anything here -- and
 ideally you should just set up your own project if you want to use any
-of the applications here, including `my blog app
-<https://github.com/ubernostrum/blog>`_ -- you should feel free (it's
-BSD-licensed), but I likely will be unresponsive to issues or pull
-requests.
+of the applications here, you should feel free (it's BSD-licensed),
+but I likely will be unresponsive to issues or pull requests.
