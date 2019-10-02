@@ -8,11 +8,6 @@
 {{ block.super }}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{% url 'categories:index' %}">
-
-  <link rel="up"
-        href="{% url 'entries:index' %}"
-        title="Weblog index"
-        type="text/html">
 {% endblock %}
 
 

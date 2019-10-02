@@ -7,11 +7,6 @@
 {% block headlinks %}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{{ object.get_absolute_url }}">
-
-  <link rel="up"
-        href="{% url 'entries:day' year=object.pub_date|date:"Y" month=object.pub_date|date:"b" day=object.pub_date|date:"d" %}"
-        title="Entries published on {{ object.pub_date|date:"F j, Y" }}"
-        type="text/html">
 {% with object.get_previous_by_pub_date as previous %}
 {% if previous %}
   <link rel="prev"
@@ -36,9 +31,15 @@
 
 <h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />{{ object.title|typogrify }}</h1>
 
+<!--
+ If this entry is assigned to one or more categories, they'll appear
+ in links in the paragraph below. Each of those links uses
+ rel="category" to indicate it's a link to a category.
+
+ See http://microformats.org/wiki/rel-category for details.
+-->
 <p class="meta">Published: <a href="{% url 'entries:day' year=object.pub_date|date:"Y" month=object.pub_date|date:"b" day=object.pub_date|date:"d" %}">{{ object.pub_date|date:"F j, Y" }}</a>. Filed under:
-  
-{% for category in object.categories.all %}<a href="{{ category.get_absolute_url }}">{{ category.title|typogrify }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}.
+{% for category in object.categories.all %}<a rel="category" href="{{ category.get_absolute_url }}">{{ category.title|typogrify }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}.
   
 {{ object.body_html|safe }}
 

@@ -10,7 +10,7 @@ urlpatterns = [
     path('',
         views.CategoryList.as_view(),
         name='index'),
-    path('<slug:slug>/',
+    path('/<slug:slug>/',
         views.CategoryDetail.as_view(),
         name='category'),
 ]

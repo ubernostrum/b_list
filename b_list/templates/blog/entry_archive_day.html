@@ -14,10 +14,6 @@
 {% load next_previous %}
 {% get_next object_list pub_date as next %}
 {% get_previous object_list pub_date as previous %}
-  <link rel="up"
-        href="{% url 'entries:month' year=day|date:"Y" month=day|date:"b" %}"
-        title="Entries published in {{ day|date:"F Y" }}"
-        type="text/html">
 {% if previous %}
 {% with previous.pub_date as prev_date %}
   <link rel="prev"

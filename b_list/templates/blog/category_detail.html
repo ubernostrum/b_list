@@ -9,11 +9,6 @@
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{% url 'categories:category' slug=object.slug %}">
 
-  <link rel="up"
-        href="{% url 'categories:index' %}"
-        title="List of all categories"
-        type="text/html">
-
   <link rel="alternate"
         href="{% url 'feeds:category' slug=object.slug %}"
         title="Feed of entries in category '{{ object.title }}'"

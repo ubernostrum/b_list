@@ -10,11 +10,6 @@
 {% block headlinks %}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{% url 'projects:detail' slug=object.slug %}">
-
-  <link rel="up"
-        href="{% url 'projects:list' %}"
-        title="Projects"
-        type="text/html">
 {% endblock %}
 
 {% block bodyclass %}{{ block.super }}{% endblock %}  

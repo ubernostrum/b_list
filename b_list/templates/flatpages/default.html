@@ -4,11 +4,6 @@
 {% block headlinks %}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{{ flatpage.url }}">
-
-  <link rel="home"
-        href="{% url 'home' %}"
-        title="Home page"
-        type="text/html">
 {% endblock %}
 
 {% block title %}{{ flatpage.title }}{% endblock %}

@@ -6,11 +6,6 @@
 {% block headlinks %}
 <link rel="canonical"
       href="{{ protocol }}://{{ site }}{% url 'contact_form_sent' %}">
-
-  <link rel="up"
-        href="{% url 'home' %}"
-        title="Home"
-        type="text/html">
 {% endblock %}
 
 {% block bodyclass %}contact{% endblock %}
