@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
                 ('body_html', models.TextField(editable=False, blank=True)),
                 ('excerpt', models.TextField(null=True, blank=True)),
                 ('excerpt_html', models.TextField(null=True, editable=False, blank=True)),
-                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('author', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
                 ('categories', models.ManyToManyField(to='blog.Category')),
             ],
             options={

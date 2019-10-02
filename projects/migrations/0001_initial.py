@@ -108,11 +108,12 @@ class Migration(migrations.Migration):
                 ('release_date',
                  models.DateField(default=datetime.date.today)),
                 ('license',
-                 models.ForeignKey(to='projects.License')),
+                 models.ForeignKey(to='projects.License', on_delete=models.CASCADE)),
                 ('project',
                  models.ForeignKey(
                      related_name='versions',
-                     to='projects.Project')),
+                     to='projects.Project',
+                     on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('project', 'version'),
