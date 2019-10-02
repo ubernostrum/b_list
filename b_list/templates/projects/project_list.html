@@ -35,7 +35,7 @@
     {% for project in object_list %}
     {% with project.latest_version as latest_version %}
     <tr>
-      <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</td>
+      <td><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></td>
       <td>
 	<a href="https://pypi.org/project/{{ project.name }}/{{ latest_version.version }}/">
 	  {{ latest_version.version }}
