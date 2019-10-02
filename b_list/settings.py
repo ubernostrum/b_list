@@ -159,12 +159,12 @@ CSP_SCRIPT_SRC = [CSP_SELF, 'https://code.jquery.com']
 CSP_STYLE_SRC = [CSP_SELF, 'https://fonts.googleapis.com']
 CSP_REQUIRE_SRI_FOR = ['script', 'style']
 
-CSP_CHILD_SRC = CSP_NONE
 CSP_CONNECT_SRC = CSP_NONE
 CSP_FRAME_ANCESTORS = CSP_NONE
 CSP_FRAME_SRC = CSP_NONE
 CSP_MEDIA_SRC = CSP_NONE
 CSP_OBJECT_SRC = CSP_NONE
+CSP_WORKER_SRC = CSP_NONE
 
 
 # Miscellaneous settings.
