@@ -35,7 +35,7 @@ urls = [
         name='contact_form_sent'),
     path('projects/', include('projects.urls')),
     path('feeds/', include('blog.urls.feeds', namespace='feeds')),
-    path('weblog/categories', include('blog.urls.categories', namespace='categories')),
+    path('weblog/categories/', include('blog.urls.categories', namespace='categories')),
     path('weblog/', include('blog.urls.entries', namespace='entries')),
     path('crossdomain.xml', no_access),
 ]
