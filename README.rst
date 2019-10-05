@@ -4,7 +4,8 @@ b_list
 This is the source code of the `Django
 <https://www.djangoproject.com/>`_ project which powers `my personal
 blog <http://www.b-list.org>`_. It includes both my personal blog
-application and the app I use to track my open-source projects.
+application and the app I use to track my open-source projects, which
+previously were in separate repositories.
 
 This repository exists mainly to provide a consistent point for me to
 deploy from. It may or may not be useful to you, and does not actually
