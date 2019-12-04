@@ -7,9 +7,9 @@ certifi==2019.6.16 \
 chardet==3.0.4 \
     --hash=sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae \
     --hash=sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691
-Django==2.2.6 \
-    --hash=sha256:4025317ca01f75fc79250ff7262a06d8ba97cd4f82e93394b2a0a6a4a925caeb \
-        --hash=sha256:a8ca1033acac9f33995eb2209a6bf18a4681c3e5269a878e9a7e0b7384ed1ca3
+Django==2.2.8 \
+    --hash=sha256:fa98ec9cc9bf5d72a08ebf3654a9452e761fbb8566e3f80de199cbc15477e891 \
+        --hash=sha256:a4ad4f6f9c6a4b7af7e2deec8d0cbff28501852e5010d6c2dc695d3d1fae7ca0
 django-contact-form[akismet]==1.7 \
     --hash=sha256:b42b7e04d6af3318b8427c1eaf62385ec66da252aa79b607ee55d956c7af4a2d \
     --hash=sha256:c31f73faa13f52efa81ac95f41007f3a84eca617f92773a1bed7ca90c61cb3ed
