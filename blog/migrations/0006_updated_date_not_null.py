@@ -7,14 +7,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('blog', '0005_populate_updated_date'),
-    ]
+    dependencies = [("blog", "0005_populate_updated_date")]
 
     operations = [
         migrations.AlterField(
-            model_name='entry',
-            name='updated_date',
+            model_name="entry",
+            name="updated_date",
             field=models.DateTimeField(blank=True, editable=False),
-        ),
+        )
     ]

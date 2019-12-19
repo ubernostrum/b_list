@@ -1,3 +1,6 @@
+import typing
+
+from django.db import models
 from django.views import generic
 
 from .models import Project, Version
@@ -27,10 +30,11 @@ class VersionDetail(VersionMixin, generic.DetailView):
     Detail view of a specific Version of a Project.
 
     """
-    project_url_kwarg = 'project_slug'
-    slug_field = 'version'
 
-    def get_object(self, queryset=None):
+    project_url_kwarg = "project_slug"
+    slug_field = "version"
+
+    def get_object(self, queryset: typing.Optional[models.QuerySet] = None) -> Version:
         """
         Returns the Version, doing the lookup through the Project
         (using an additional argument from the URL).
@@ -38,14 +42,12 @@ class VersionDetail(VersionMixin, generic.DetailView):
         """
         project_slug = self.kwargs.get(self.project_url_kwarg, None)
         if project_slug is None:
-            raise AttributeError("VersionDetail must be called with "
-                                 "a project slug.")
+            raise AttributeError("VersionDetail must be called with " "a project slug.")
         if queryset is None:
             queryset = self.get_queryset()
 
         queryset = queryset.filter(
-            project__slug=project_slug,
-            project__status=Project.PUBLIC_STATUS
+            project__slug=project_slug, project__status=Project.PUBLIC_STATUS
         )
         return super().get_object(queryset)
 
@@ -56,14 +58,17 @@ class LatestVersionsList(VersionMixin, generic.ListView):
     Project name.
 
     """
-    template_name = 'projects/latest_versions.html'
+
+    template_name = "projects/latest_versions.html"
     version_filter_kwargs = {
-        'is_latest': True,
-        'project__status': Project.PUBLIC_STATUS,
+        "is_latest": True,
+        "project__status": Project.PUBLIC_STATUS,
     }
 
-    def get_queryset(self):
+    def get_queryset(self) -> models.QuerySet:
         queryset = super().get_queryset()
-        return queryset.filter(
-            **self.version_filter_kwargs
-            ).select_related('project').order_by('project')
+        return (
+            queryset.filter(**self.version_filter_kwargs)
+            .select_related("project")
+            .order_by("project")
+        )

@@ -14,13 +14,8 @@ from django.db import models, migrations
 # longer being used.
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('blog', '0002_markupfield'),
-    ]
+    dependencies = [("blog", "0002_markupfield")]
 
     operations = [
-        migrations.RunPython(
-            migrations.RunPython.noop,
-            migrations.RunPython.noop
-        )
+        migrations.RunPython(migrations.RunPython.noop, migrations.RunPython.noop)
     ]

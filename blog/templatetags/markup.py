@@ -10,5 +10,5 @@ register = template.Library()
 
 @register.filter
 @stringfilter
-def markup(value):
+def markup(value: str) -> str:
     return mark_safe(markup_func(value))

@@ -9,121 +9,107 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Basic Django settings.
 # ------------------------------------------------------------------------------
 
-DEBUG = bool(int(os.getenv('DJANGO_DEBUG', 0)))
+DEBUG = bool(int(os.getenv("DJANGO_DEBUG", 0)))
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
-DATABASES['default']['CONN_MAX_AGE'] = 500
+DATABASES["default"] = dj_database_url.config()
+DATABASES["default"]["CONN_MAX_AGE"] = 500
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-        ],
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'b_list.context_processors.current_site',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "APP_DIRS": True,
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "b_list.context_processors.current_site",
             ],
-            'debug': DEBUG
-        }
+            "debug": DEBUG,
+        },
     }
 ]
 
 MIDDLEWARE = (
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'csp.middleware.CSPMiddleware',
-    'django_referrer_policy.middleware.ReferrerPolicyMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "csp.middleware.CSPMiddleware",
+    "django_referrer_policy.middleware.ReferrerPolicyMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.admin',
-    'django.contrib.flatpages',
-    'django.contrib.staticfiles',
-    'blog',
-    'contact_form',
-    'typogrify',
-    'gunicorn',
-    'projects',
-    'widget_tweaks',
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.sites",
+    "django.contrib.messages",
+    "django.contrib.admin",
+    "django.contrib.flatpages",
+    "django.contrib.staticfiles",
+    "blog",
+    "contact_form",
+    "typogrify",
+    "gunicorn",
+    "projects",
+    "widget_tweaks",
 )
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
+AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'simple': {
-            'format': '%(levelname)s %(message)s',
-        },
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {"simple": {"format": "%(levelname)s %(message)s"}},
+    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
+    "handlers": {
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false"],
+            "class": "django.utils.log.AdminEmailHandler",
         }
     },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
+    "loggers": {
+        "django.request": {
+            "handlers": ["mail_admins"],
+            "level": "ERROR",
+            "propagate": True,
+        }
     },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
 }
 
-ALLOWED_HOSTS = ['*']
-ROOT_URLCONF = 'b_list.urls'
-SECRET_KEY = os.environ['SECRET_KEY']
-WSGI_APPLICATION = 'b_list.wsgi.application'
+ALLOWED_HOSTS = ["*"]
+ROOT_URLCONF = "b_list.urls"
+SECRET_KEY = os.environ["SECRET_KEY"]
+WSGI_APPLICATION = "b_list.wsgi.application"
 
 
 # Email.
 # ------------------------------------------------------------------------------
 
-DEFAULT_FROM_EMAIL = 'django@b-list.org'
+DEFAULT_FROM_EMAIL = "django@b-list.org"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST = os.environ['EMAIL_HOST']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST = os.environ["EMAIL_HOST"]
+EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
+EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
 
 
 # Static files.
 # ------------------------------------------------------------------------------
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = "/static/"
 
 
 # Security.
@@ -134,16 +120,16 @@ CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = not DEBUG
 
-REFERRER_POLICY = 'same-origin'
+REFERRER_POLICY = "same-origin"
 
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_HOST = 'www.b-list.org'
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_HOST = "www.b-list.org"
 SECURE_SSL_REDIRECT = not DEBUG
 
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = "DENY"
 
 
 # CSP.
@@ -152,12 +138,12 @@ X_FRAME_OPTIONS = 'DENY'
 CSP_SELF = "'self'"
 CSP_NONE = ["'none'"]
 
-CSP_FONT_SRC = [CSP_SELF, 'https://fonts.gstatic.com']
+CSP_FONT_SRC = [CSP_SELF, "https://fonts.gstatic.com"]
 CSP_FORM_ACTION = [CSP_SELF]
-CSP_IMG_SRC = [CSP_SELF, 'https://travis-ci.org', 'https://api.travis-ci.org']
-CSP_SCRIPT_SRC = [CSP_SELF, 'https://code.jquery.com']
-CSP_STYLE_SRC = [CSP_SELF, 'https://fonts.googleapis.com']
-CSP_REQUIRE_SRI_FOR = ['script', 'style']
+CSP_IMG_SRC = [CSP_SELF, "https://travis-ci.org", "https://api.travis-ci.org"]
+CSP_SCRIPT_SRC = [CSP_SELF, "https://code.jquery.com"]
+CSP_STYLE_SRC = [CSP_SELF, "https://fonts.googleapis.com"]
+CSP_REQUIRE_SRI_FOR = ["script", "style"]
 
 CSP_CONNECT_SRC = CSP_NONE
 CSP_FRAME_ANCESTORS = CSP_NONE
@@ -170,19 +156,17 @@ CSP_WORKER_SRC = CSP_NONE
 # Miscellaneous settings.
 # ------------------------------------------------------------------------------
 
-ADMINS = (
-    ('James Bennett', os.environ['MANAGER_EMAIL']),
-)
+ADMINS = (("James Bennett", os.environ["MANAGER_EMAIL"]),)
 MANAGERS = ADMINS
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 USE_I18N = False
 USE_L10N = False
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = "America/Chicago"
 
 SITE_ID = 1
 
-MEDIA_URL = 'http://media.b-list.org/m/'
+MEDIA_URL = "http://media.b-list.org/m/"
 
 PREPEND_WWW = not DEBUG

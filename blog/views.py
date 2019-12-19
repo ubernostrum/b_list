@@ -4,7 +4,7 @@ from .models import Category, Entry
 
 
 class EntryMixin:
-    date_field = 'pub_date'
+    date_field = "pub_date"
     model = Entry
 
 

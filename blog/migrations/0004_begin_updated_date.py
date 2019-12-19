@@ -8,20 +8,15 @@ import django.db.models.manager
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('blog', '0003_remove_markupfield'),
-    ]
+    dependencies = [("blog", "0003_remove_markupfield")]
 
     operations = [
         migrations.AlterModelManagers(
-            name='entry',
-            managers=[
-                ('live', django.db.models.manager.Manager()),
-            ],
+            name="entry", managers=[("live", django.db.models.manager.Manager())]
         ),
         migrations.AddField(
-            model_name='entry',
-            name='updated_date',
+            model_name="entry",
+            name="updated_date",
             field=models.DateTimeField(blank=True, null=True),
         ),
     ]

@@ -8,13 +8,10 @@ from django.db import models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('blog', '0004_begin_updated_date'),
-    ]
+    dependencies = [("blog", "0004_begin_updated_date")]
 
     operations = [
         migrations.RunSQL(
-            ["UPDATE blog_entry SET updated_date = pub_date;"],
-            migrations.RunSQL.noop
+            ["UPDATE blog_entry SET updated_date = pub_date;"], migrations.RunSQL.noop
         )
     ]

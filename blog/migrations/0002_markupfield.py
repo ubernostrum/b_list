@@ -13,13 +13,8 @@ from django.db import models, migrations
 # make MarkupField importable for these migrations) despite it no
 # longer being used.
 class Migration(migrations.Migration):
-    dependencies = [
-        ('blog', '0001_initial'),
-    ]
+    dependencies = [("blog", "0001_initial")]
 
     operations = [
-        migrations.RunPython(
-            migrations.RunPython.noop,
-            migrations.RunPython.noop
-        )
+        migrations.RunPython(migrations.RunPython.noop, migrations.RunPython.noop)
     ]

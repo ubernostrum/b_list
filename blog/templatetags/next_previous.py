@@ -1,27 +1,30 @@
 from django import template
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import models
+from django.template.base import Parser, Token
 
 
 class NextPreviousNode(template.Node):
-    def __init__(self, direction, queryset, date_field, varname):
-        (self.direction,
-         self.date_field,
-         self.varname) = (direction,
-                          date_field,
-                          varname)
+    def __init__(
+        self, direction: str, queryset: models.QuerySet, date_field: str, varname: str
+    ):
+        (self.direction, self.date_field, self.varname) = (
+            direction,
+            date_field,
+            varname,
+        )
         self.queryset = template.Variable(queryset)
 
-    def render(self, context):
+    def render(self, context: dict) -> str:
         queryset = list(self.queryset.resolve(context))
         result = None
 
         try:
-            obj = queryset[{'next': 0,
-                            'previous': -1}[self.direction]]
+            obj = queryset[{"next": 0, "previous": -1}[self.direction]]
         except IndexError:
-            return ''
+            return ""
 
-        method = getattr(obj, 'get_%s_by_pub_date' % self.direction)
+        method = getattr(obj, "get_%s_by_pub_date" % self.direction)
 
         try:
             result = method()
@@ -29,10 +32,10 @@ class NextPreviousNode(template.Node):
             pass
 
         context[self.varname] = result
-        return ''
+        return ""
 
 
-def next_previous(parser, token):
+def next_previous(parser: Parser, token: Token) -> NextPreviousNode:
     """
     Helps navigation of date-based archives, by finding next/previous
     objects.
@@ -58,16 +61,14 @@ def next_previous(parser, token):
     """
     bits = token.contents.split()
     if len(bits) != 5:
-        raise template.TemplateSyntaxError(
-            "'%s' takes four arguments" % bits[0]
-        )
-    if bits[3] != 'as':
+        raise template.TemplateSyntaxError("'%s' takes four arguments" % bits[0])
+    if bits[3] != "as":
         raise template.TemplateSyntaxError(
             "Third argument to '%s' must be 'as'" % bits[0]
         )
-    return NextPreviousNode(bits[0].split('_')[1], bits[1], bits[2], bits[4])
+    return NextPreviousNode(bits[0].split("_")[1], bits[1], bits[2], bits[4])
 
 
 register = template.Library()
-register.tag('get_next', next_previous)
-register.tag('get_previous', next_previous)
+register.tag("get_next", next_previous)
+register.tag("get_previous", next_previous)

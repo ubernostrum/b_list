@@ -18,38 +18,40 @@ from . import views
 
 
 urls = [
-    path('admin/', admin.site.urls),
-    path('',
-        EntryArchiveIndex.as_view(
-            template_name='home.html',
-            ),
-        name='home'),
-    path('contact/',
-        ContactFormView.as_view(
-            form_class=AkismetContactForm
-        ),
-        name='contact_form'),
-    path('contact/sent/',
-        TemplateView.as_view(
-            template_name='contact_form/contact_form_sent.html'),
-        name='contact_form_sent'),
-    path('projects/', include('projects.urls')),
-    path('feeds/', include('blog.urls.feeds', namespace='feeds')),
-    path('weblog/categories/', include('blog.urls.categories', namespace='categories')),
-    path('weblog/', include('blog.urls.entries', namespace='entries')),
-    path('crossdomain.xml', no_access),
+    path("admin/", admin.site.urls),
+    path("", EntryArchiveIndex.as_view(template_name="home.html"), name="home"),
+    path(
+        "contact/",
+        ContactFormView.as_view(form_class=AkismetContactForm),
+        name="contact_form",
+    ),
+    path(
+        "contact/sent/",
+        TemplateView.as_view(template_name="contact_form/contact_form_sent.html"),
+        name="contact_form_sent",
+    ),
+    path("projects/", include("projects.urls")),
+    path("feeds/", include("blog.urls.feeds", namespace="feeds")),
+    path("weblog/categories/", include("blog.urls.categories", namespace="categories")),
+    path("weblog/", include("blog.urls.entries", namespace="entries")),
+    path("crossdomain.xml", no_access),
 ]
 
 
 legacy = [
-    path('links/', views.gone),
-    re_path('weblog/(?P<year>\d{4})/(?P<month>\d{2})/',
-        views.EntryMonthRedirect.as_view()),
-    re_path('weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/',
-        views.EntryDayRedirect.as_view()),
-    re_path('weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/',
-        views.EntryDetailRedirect.as_view()),
-    path('media/<path:path>', views.MediaRedirect.as_view()),
+    path("links/", views.gone),
+    re_path(
+        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/", views.EntryMonthRedirect.as_view()
+    ),
+    re_path(
+        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/",
+        views.EntryDayRedirect.as_view(),
+    ),
+    re_path(
+        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/",
+        views.EntryDetailRedirect.as_view(),
+    ),
+    path("media/<path:path>", views.MediaRedirect.as_view()),
 ]
 
 
