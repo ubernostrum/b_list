@@ -41,14 +41,15 @@ urls = [
 legacy = [
     path("links/", views.gone),
     re_path(
-        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/", views.EntryMonthRedirect.as_view()
+        r"^weblog/(?P<year>\d{4})/(?P<month>\d{2})/$",
+        views.EntryMonthRedirect.as_view(),
     ),
     re_path(
-        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/",
+        r"^weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/$",
         views.EntryDayRedirect.as_view(),
     ),
     re_path(
-        "weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/",
+        r"^weblog/(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[-\w]+)/$",
         views.EntryDetailRedirect.as_view(),
     ),
     path("media/<path:path>", views.MediaRedirect.as_view()),

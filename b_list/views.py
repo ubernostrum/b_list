@@ -32,7 +32,7 @@ class EntryDetailRedirect(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs) -> str:
         return reverse(
-            "blog_entry_detail",
+            "entries:entry",
             kwargs={
                 "year": kwargs["year"],
                 "month": MONTH_DICT[kwargs["month"]],
@@ -47,7 +47,7 @@ class EntryDayRedirect(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs) -> str:
         return reverse(
-            "blog_entry_archive_day",
+            "entries:day",
             kwargs={
                 "year": kwargs["year"],
                 "month": MONTH_DICT[kwargs["month"]],
@@ -61,7 +61,7 @@ class EntryMonthRedirect(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs) -> str:
         return reverse(
-            "blog_entry_archive_month",
+            "entries:month",
             kwargs={"year": kwargs["year"], "month": MONTH_DICT[kwargs["month"]]},
         )
 
