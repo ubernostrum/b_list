@@ -48,6 +48,7 @@ MIDDLEWARE = (
 )
 
 INSTALLED_APPS = (
+    "whitenoise.runserver_nostatic",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -109,6 +110,7 @@ EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "/static/"
 
 
