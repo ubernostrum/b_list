@@ -9,7 +9,7 @@
  comments interspersed through the rest of the page, explaining things
  I thought were interesting or needed explanation.
 -->
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}{% endblock %}</title>
@@ -32,21 +32,24 @@
    See https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
    for all the details.
   -->
-  <link href="https://fonts.googleapis.com/css?family=Merriweather%7CPatua+One"
-	rel="stylesheet"
-	integrity="sha256-8qtjGi9vT2CxfL7HZ6VkN9YsASAePPVh/5dO4XE4co8="
-	crossorigin="anonymous"> 
-  <link href="{% static "b-list/css/b-list-20180220.css" %}"
-	rel="stylesheet"
-	integrity="sha256-VekfT4b+GdOLumqEA5b2kbatXJi3OLh+tPBbvNBhRHs=">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cousine:ital@0;1&family=Montserrat:ital,wght@0,600;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet"
+    integrity="sha256-OlrOBJaIvqGu30S7WTA26c0ze6nq4SqWagWMf1ksduM="
+    crossorigin="anonymous">
+  <link
+    href="{% static "b-list/css/b-list-20200503.css" %}"
+    rel="stylesheet"
+    integrity="sha256-mCJ+AHZMbydjGAfE1imXiYEe7fTZROOS/RO1ZvOCDaU=">
 {% block extrahead %}{% endblock %}
   <!--
    This is my RSS (technically, Atom 1.0) feed. Putting this link here helps
    feed-reader applications find it.
   -->
-  <link rel="alternate"
-        title="Feed of latest entries" href="{% url 'feeds:entries' %}"
-        type="application/atom+xml">
+  <link
+    rel="alternate"
+    title="Feed of latest entries" href="{% url 'feeds:entries' %}"
+    type="application/atom+xml">
 
   <!--
    Depending on what page you're on, there may be some more <link>
@@ -68,35 +71,58 @@
  triggers different styles, including highlighting the right section in
  the navbar.
 -->
-<body class="{% block bodyclass %}{% endblock %}">
+<body class="{% block bodyclass %}{% endblock %} d-flex flex-column h-100">
   <!--
    Here's a link for screen-reading software, allowing it to skip the
    navbar and go straight to content.
   -->
-  <a class="skip" href="#content">Skip to content</a>
-  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
-    <div class="container">
-      <div id="navbar" class="navbar-collapse">
-  	<ul class="nav navbar-nav">
-	  <li id="home-link"><a href="/">Home</a></li>
-	  <li id="weblog-link"><a href="/weblog/">Weblog</a></li>
-	  <li id="projects-link"><a href="/projects/">Projects</a></li>
-	  <li id="about-link"><a href="/about/">About</a></li>
-	  <li id="contact-link"><a href="/contact/">Contact</a></li>
-	</ul>
-      </div>
+  <a class="sr-only" href="#content">Skip to content</a>
+  <div class="container container-md">
+    <div class="col-md-10 offset-md-1">
+      <nav id="navbar-nav" class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="/">James Bennett</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="collapse navbar-collapse">
+  	  <ul class="navbar-nav ml-auto">
+	    <li class="nav-item" id="about-link"><a class="nav-link" href="/about/">About</a></li>
+	    <li class="nav-item" id="contact-link"><a class="nav-link" href="/contact/">Contact</a></li>
+	    <li class="nav-item" id="projects-link"><a class="nav-link" href="/projects/">Projects</a></li>
+	    <li class="nav-item" id="weblog-link"><a class="nav-link" href="/weblog/">Weblog</a></li>
+	  </ul>
+        </div>
+      </nav>
     </div>
-  </nav>
-  <div id="content" class="container">
+  </div>
+  <div id="content" class="container container-md">
     <!-- These classes are used by the Bootstrap CSS framework to control layout. -->
-    <div class="col-md-8 col-md-offset-2 col-xs-12 col-sm-12 col-lg-8 col-lg-offset-2">
+    <div class="col-md-8 offset-md-2">
       {% block content %}{% endblock %}
     </div>
   </div>
-  <footer class="footer footer-inverse">
+  <footer class="footer mt-auto py-3">
     <div class="container">
-      <p class="footer-brand">Copyright &copy; 2006-{% now "Y" %} <a href="/about/">James Bennett</a>, a software developer living in California.</p>
-      <p class="footer-brand">Opinions expressed here are solely those of the author.</p>
+      <div class="row col-md-10 offset-md-2">
+        <div class="col-4">
+          <p>Copyright &copy; 2006-2020 <a href="https://www.b-list.org/about/">James Bennett</a>, a software developer living in California.</p>
+          <p>Opinions expressed here are solely those of the author.</p>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/weblog/">Weblog</a></li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li><svg xmlns="http://www.w3.org/2000/svg" class="bi" width="1em" height="1em" viewBox="0 0 448 512" fill="currentColor" focusable="false" aria-hidden="true"><path d="M224 32c124 0 224 103 224 230 0 101-64 188-153 218h-4c-8 0-12-7-12-12 0-8 1-31 1-62 0-21-8-36-16-43 50-6 103-25 103-113 0-25-9-46-23-62 2-6 10-29-2-61h-5c-8 0-27 3-57 24-18-5-37-8-56-8s-38 3-56 8c-30-21-49-24-57-24h-5c-12 32-4 55-2 61-14 16-23 37-23 62 0 88 52 107 102 113-6 6-12 16-14 31-6 3-16 6-26 6-13 0-28-5-39-25 0 0-13-22-35-24-2 0-21 0-1 14 0 0 15 8 25 34 0 0 10 33 53 33 7 0 14 0 22-2v39c0 5-3 11-11 11h-4C64 450 0 364 0 262 0 135 100 32 224 32z"></path></svg>&nbsp;<a href="https://github.com/ubernostrum">GitHub</a></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor" focusable="false" aria-hidden="true"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6-18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6.8 15 2.5 22.1-80.5-4-151.9-42.6-199.6-101.3-8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7-16-.4-31-4.8-44-12.1v1.2c0 47 33.4 86.1 77.7 95-8.1 2.2-16.7 3.4-25.5 3.4-6.2 0-12.3-.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3-33.1 26-74.9 41.5-120.3 41.5-7.8 0-15.5-.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-.1-8.4-.3-12.5C462.6 146 479 129 492 109.5z"></path></svg>&nbsp;<a href="https://twitter.com/ubernostrum/">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
   <!--
@@ -104,12 +130,8 @@
 
    Here it is, once again with subresource-integrity hashes.
   -->
-  <script type="text/javascript"
-	  src="https://code.jquery.com/jquery-3.3.1.min.js"
-	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	  crossorigin="anonymous"></script>
-  <script type="text/javascript"
-	  src="{% static "b-list/js/bootstrap.min.js" %}"
-	  integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8="></script>
-</body>
-</html>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body></html>

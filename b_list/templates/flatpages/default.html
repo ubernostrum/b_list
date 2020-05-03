@@ -14,7 +14,7 @@
 {% load markup %}
 {% load typogrify_tags %}
 
-<h1><span class="glyphicon glyphicon-info-sign small" aria-hidden="true"></span><br />{{ flatpage.title|typogrify }}</h1>
+<h1>{{ flatpage.title|typogrify }}</h1>
 
 <p class="meta">{% block flatpage_about %}{% endblock %}</p>
 

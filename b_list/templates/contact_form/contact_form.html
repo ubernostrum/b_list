@@ -14,7 +14,7 @@
 {% load widget_tweaks %}
 {% load typogrify_tags %}
 
-<h1><span class="glyphicon glyphicon-envelope small" aria-hidden="true"></span><br />Get in touch</h1>
+<h1>Get in touch</h1>
 
 <p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'entries:index' %}">weblog index</a>.</p>
 
@@ -33,7 +33,7 @@
     <label for="id_body">Your message:</label>{% if form.body.errors %} <span class="error bg-warning">{{ form.body.errors|join:", " }}</span>{% endif %}
     {{ form.body|add_class:"form-control" }}
   </div>
-  <button type="submit" class="btn btn-default">Send</button>
+  <button type="submit" class="btn btn-outline-dark">Send</button>
 </form>
 
 {% endblock %}

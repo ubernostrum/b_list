@@ -29,7 +29,7 @@
 {% block content %}
 {% load typogrify_tags %}
 
-<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />{{ object.title|typogrify }}</h1>
+<h1>{{ object.title|typogrify }}</h1>
 
 <!--
  If this entry is assigned to one or more categories, they'll appear

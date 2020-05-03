@@ -37,7 +37,7 @@
 
 {% load typogrify_tags %}
 
-<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entries published in {{ month|date:"F Y" }}</h1>
+<h1>Entries published in {{ month|date:"F Y" }}</h1>
 
 <p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this month. See also: <a href="{% url 'entries:year' year=month|date:"Y" %}">all entries published in {{ month|date:"Y" }}</a>, <a href="{% url 'entries:index' %}">latest entries</a>.</p>
 

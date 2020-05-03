@@ -14,7 +14,7 @@
 {% block content %}
 {% load typogrify_tags %}
 
-<h1><span class="glyphicon glyphicon-pencil small" aria-hidden="true"></span><br />Entry categories</h1>
+<h1>Entry categories</h1>
 
 <p class="meta">{{ object_list.count }} categor{{ object_list.count|pluralize:"y,ies" }} in use. See also: <a href="{% url 'entries:index' %}">latest entries</a>.</p>
 
