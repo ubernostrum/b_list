@@ -3,10 +3,6 @@
 
 {% block title %}Entries published in {{ year|date:"Y" }}{% endblock %}
 
-{% block extrahead %}
-  <meta name="robots" content="noindex, follow">
-{% endblock %}
-
 {% block headlinks %}
   <link rel="canonical"
 	href="{{ protocol }}://{{ site }}{% url 'entries:year' year=year|date:"Y" %}">

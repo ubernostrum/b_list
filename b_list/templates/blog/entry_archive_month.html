@@ -3,10 +3,6 @@
 
 {% block title %}Entries published in {{ month|date:"F Y" }}{% endblock %}
 
-{% block extrahead %}
-  <meta name="robots" content="noindex, follow">
-{% endblock %}
-
 {% block headlinks %}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{% url 'entries:month' year=month|date:"Y" month=month|date:"b" %}">

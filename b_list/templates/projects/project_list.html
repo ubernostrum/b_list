@@ -3,10 +3,6 @@
 
 {% block title %}Projects{% endblock %}
 
-{% block extrahead %}
-  <meta name="robots" content="noindex, follow">
-{% endblock %}
-
 {% block headlinks %}
   <link rel="canonical"
         href="{{ protocol }}://{{ site }}{% url 'projects:list' %}">
