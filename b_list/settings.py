@@ -147,7 +147,7 @@ CSP_SCRIPT_SRC = [
     "https://cdn.jsdelivr.net",
     "https://stackpath.bootstrapcdn.com",
 ]
-CSP_STYLE_SRC = [CSP_SELF, "https://fonts.googleapis.com"]
+CSP_STYLE_SRC = [CSP_SELF]
 CSP_REQUIRE_SRI_FOR = ["script", "style"]
 
 CSP_CONNECT_SRC = CSP_NONE
