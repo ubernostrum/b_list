@@ -138,7 +138,7 @@ CSP_SELF = "'self'"
 CSP_DATA = "data:"
 CSP_NONE = ["'none'"]
 
-CSP_FONT_SRC = [CSP_SELF, "https://fonts.gstatic.com"]
+CSP_FONT_SRC = [CSP_SELF]
 CSP_FORM_ACTION = [CSP_SELF]
 CSP_IMG_SRC = [CSP_SELF, "https://travis-ci.org", "https://api.travis-ci.org", CSP_DATA]
 CSP_SCRIPT_SRC = [

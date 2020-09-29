@@ -19,8 +19,7 @@
   -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--
-   Two stylesheets; one pulls custom font definitions from Google Fonts.
-   The other is my site's own stylesheet.
+   Main stylesheet.
 
    The "integrity" attribute is a security measure. It specifies the
    expected SHA-256 hash of a given resource (like a stylesheet or a
@@ -33,14 +32,9 @@
    for all the details.
   -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Cousine:ital@0;1&family=Montserrat:ital,wght@0,600;1,600&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    href="{% static "b-list/css/b-list-20200928.css" %}"
     rel="stylesheet"
-    integrity="sha256-1R72FDBk/1t7lU30QS4wG8qemuS62Ev2kTDSpJI+jqw="
-    crossorigin="anonymous">
-  <link
-    href="{% static "b-list/css/b-list-20200503.css" %}"
-    rel="stylesheet"
-    integrity="sha256-mCJ+AHZMbydjGAfE1imXiYEe7fTZROOS/RO1ZvOCDaU=">
+    integrity="sha256-+kwJUwc6cSiDjagKn+Z5f+2F/I142DR8NQOEbOCjXQU=">
 {% block extrahead %}{% endblock %}
   <!--
    This is my RSS (technically, Atom 1.0) feed. Putting this link here helps
