@@ -47,12 +47,12 @@
       <td><a href="{{ object.repository_link }}">on GitHub</a></td>
     </tr>
     <tr>
-      <th scope="row">Unit tests</th>
-      <td><a href="{{ object.tests_link }}">on Travis CI</a></td>
+      <th scope="row">Continuous integration</th>
+      <td><a href="{{ object.tests_link }}">on GitHub Actions</a></td>
     </tr>
     <tr>
-      <th scope="row">Test status</th>
-      <td><img src="{{ object.tests_link }}.svg?branch=master" alt="Travis CI status badge"></td>
+      <th scope="row">CI status</th>
+      <td><img src="{{ object.repository_link }}/workflows/CI/badge.svg" alt="GitHub Actions status badge"></td>
     </tr>
   </tbody>
 </table>
