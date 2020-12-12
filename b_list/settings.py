@@ -140,7 +140,7 @@ CSP_NONE = ["'none'"]
 
 CSP_FONT_SRC = [CSP_SELF]
 CSP_FORM_ACTION = [CSP_SELF]
-CSP_IMG_SRC = [CSP_SELF, "https://travis-ci.org", "https://api.travis-ci.org", CSP_DATA]
+CSP_IMG_SRC = [CSP_SELF, "https://github.com", CSP_DATA]
 CSP_SCRIPT_SRC = [
     CSP_SELF,
     "https://code.jquery.com",
