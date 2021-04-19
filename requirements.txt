@@ -4,66 +4,69 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes --output-file=requirements.txt
 #
-
 akismet==1.1 \
     --hash=sha256:05ec92821e03fa6b389e92279e362fbd58bd5ab27aaedc4b6f3ea3e3d5cecf62 \
-    --hash=sha256:e0b5e94d5c505714f68f46a8943707e30d36b5448c7928753237715ccff192df \
+    --hash=sha256:e0b5e94d5c505714f68f46a8943707e30d36b5448c7928753237715ccff192df
     # via django-contact-form
 asgiref==3.2.7 \
     --hash=sha256:8036f90603c54e93521e5777b2b9a39ba1bad05773fcf2d208f0299d1df58ce5 \
-    --hash=sha256:9ca8b952a0a9afa61d30aa6d3d9b570bb3fd6bafcf7ec9e6bed43b936133db1c \
+    --hash=sha256:9ca8b952a0a9afa61d30aa6d3d9b570bb3fd6bafcf7ec9e6bed43b936133db1c
     # via django
 certifi==2019.6.16 \
     --hash=sha256:046832c04d4e752f37383b628bc601a7ea7211496b4638f6514d0e5b9acc4939 \
-    --hash=sha256:945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695 \
+    --hash=sha256:945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695
     # via requests
 chardet==3.0.4 \
     --hash=sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae \
-    --hash=sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691 \
+    --hash=sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691
     # via requests
 dj-database-url==0.5.0 \
     --hash=sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163 \
-    --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9 \
+    --hash=sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9
     # via -r requirements.in
 django-contact-form[akismet]==1.8.1 \
     --hash=sha256:1a6f5479d8f70a7c6040926ec68567d5d0741a9d94ad81357b62bcec245b67ff \
-    --hash=sha256:e1329c409c28e722da7c2bdc69cbe074dc51c1681311cb67bba0218d68a853da \
+    --hash=sha256:e1329c409c28e722da7c2bdc69cbe074dc51c1681311cb67bba0218d68a853da
     # via -r requirements.in
 django-csp==3.6 \
     --hash=sha256:0a38aa9618c675cbf5f5e517e20d5846a3e100ef7b307e32e7fb18c58aa47723 \
-    --hash=sha256:d9ee5a8c6442aa54854e8de627c2826786208ed38fb4ea8ced08c42332673eb1 \
+    --hash=sha256:d9ee5a8c6442aa54854e8de627c2826786208ed38fb4ea8ced08c42332673eb1
     # via -r requirements.in
 django-flashpolicies==1.12.2 \
     --hash=sha256:002be6d4c3dce921eb20a663578bd65835586d550be41590671f71dcc916f301 \
-    --hash=sha256:b69b37aafb23827616f1cdcaba59b45a9a54e2256960cfb7a0afd8e9c023bc98 \
+    --hash=sha256:b69b37aafb23827616f1cdcaba59b45a9a54e2256960cfb7a0afd8e9c023bc98
     # via -r requirements.in
 django-widget-tweaks==1.4.8 \
     --hash=sha256:9f91ca4217199b7671971d3c1f323a2bec71a0c27dec6260b3c006fa541bc489 \
-    --hash=sha256:f80bff4a8a59b278bb277a405a76a8b9a884e4bae7a6c70e78a39c626cd1c836 \
+    --hash=sha256:f80bff4a8a59b278bb277a405a76a8b9a884e4bae7a6c70e78a39c626cd1c836
     # via -r requirements.in
-django==3.0.10 \
-    --hash=sha256:2d14be521c3ae24960e5e83d4575e156a8c479a75c935224b671b1c6e66eddaf \
-    --hash=sha256:313d0b8f96685e99327785cc600a5178ca855f8e6f4ed162e671e8c3cf749739 \
-    # via -r requirements.in, django-contact-form, django-csp, django-flashpolicies
+django==3.0.14 \
+    --hash=sha256:9bc7aa619ed878fedba62ce139abe663a147dccfd20e907725ec11e02a1ca225 \
+    --hash=sha256:d58d8394036db75a81896037d757357e79406e8f68816c3e8a28721c1d9d4c11
+    # via
+    #   -r requirements.in
+    #   django-contact-form
+    #   django-csp
+    #   django-flashpolicies
 gunicorn==20.0.4 \
     --hash=sha256:1904bb2b8a43658807108d59c3f3d56c2b6121a701161de0ddf9ad140073c626 \
-    --hash=sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c \
+    --hash=sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c
     # via -r requirements.in
 idna==2.8 \
     --hash=sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407 \
-    --hash=sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c \
+    --hash=sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c
     # via requests
 importlib-metadata==1.7.0 \
     --hash=sha256:90bb658cdbbf6d1735b6341ce708fc7024a3e14e99ffdc5783edea9f9b077f83 \
-    --hash=sha256:dc15b2969b4ce36305c51eebe62d418ac7791e9a157911d58bfb1f9ccd8e2070 \
+    --hash=sha256:dc15b2969b4ce36305c51eebe62d418ac7791e9a157911d58bfb1f9ccd8e2070
     # via markdown
 jinja2==2.11.2 \
     --hash=sha256:89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0 \
-    --hash=sha256:f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035 \
+    --hash=sha256:f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035
     # via -r requirements.in
 markdown==3.2.2 \
     --hash=sha256:1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17 \
-    --hash=sha256:c467cd6233885534bf0fe96e62e3cf46cfc1605112356c4f9981512b8174de59 \
+    --hash=sha256:c467cd6233885534bf0fe96e62e3cf46cfc1605112356c4f9981512b8174de59
     # via -r requirements.in
 markupsafe==1.1.1 \
     --hash=sha256:00bc623926325b26bb9605ae9eae8a215691f33cae5df11ca5424f06f2d1f473 \
@@ -98,7 +101,7 @@ markupsafe==1.1.1 \
     --hash=sha256:cd5df75523866410809ca100dc9681e301e3c27567cf498077e8551b6d20e42f \
     --hash=sha256:cdb132fc825c38e1aeec2c8aa9338310d29d337bebbd7baa06889d09a60a1fa2 \
     --hash=sha256:e249096428b3ae81b08327a63a485ad0878de3fb939049038579ac0ef61e17e7 \
-    --hash=sha256:e8313f01ba26fbbe36c7be1966a7b7424942f670f38e666995b88d012765b9be \
+    --hash=sha256:e8313f01ba26fbbe36c7be1966a7b7424942f670f38e666995b88d012765b9be
     # via jinja2
 psycopg2-binary==2.8.6 \
     --hash=sha256:0deac2af1a587ae12836aa07970f5cb91964f05a7c6cdb69d8425ff4c15d4e2c \
@@ -132,41 +135,43 @@ psycopg2-binary==2.8.6 \
     --hash=sha256:e74a55f6bad0e7d3968399deb50f61f4db1926acf4a6d83beaaa7df986f48b1c \
     --hash=sha256:e82aba2188b9ba309fd8e271702bd0d0fc9148ae3150532bbb474f4590039ffb \
     --hash=sha256:ee69dad2c7155756ad114c02db06002f4cded41132cc51378e57aad79cc8e4f4 \
-    --hash=sha256:f5ab93a2cb2d8338b1674be43b442a7f544a0971da062a5da774ed40587f18f5 \
+    --hash=sha256:f5ab93a2cb2d8338b1674be43b442a7f544a0971da062a5da774ed40587f18f5
     # via -r requirements.in
 pytz==2020.1 \
     --hash=sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed \
-    --hash=sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048 \
+    --hash=sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048
     # via django
 requests==2.22.0 \
     --hash=sha256:11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4 \
-    --hash=sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31 \
+    --hash=sha256:9cf5292fcd0f598c671cfc1e0d7d1a7f13bb8085e9a590f48c010551dc6c4b31
     # via akismet
 smartypants==2.0.1 \
-    --hash=sha256:8db97f7cbdf08d15b158a86037cd9e116b4cf37703d24e0419a0d64ca5808f0d \
-    # via -r requirements.in, typogrify
+    --hash=sha256:8db97f7cbdf08d15b158a86037cd9e116b4cf37703d24e0419a0d64ca5808f0d
+    # via
+    #   -r requirements.in
+    #   typogrify
 sqlparse==0.3.1 \
     --hash=sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e \
-    --hash=sha256:e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548 \
+    --hash=sha256:e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548
     # via django
 typogrify==2.0.7 \
-    --hash=sha256:8be4668cda434163ce229d87ca273a11922cb1614cb359970b7dc96eed13cb38 \
+    --hash=sha256:8be4668cda434163ce229d87ca273a11922cb1614cb359970b7dc96eed13cb38
     # via -r requirements.in
 urllib3==1.25.3 \
     --hash=sha256:b246607a25ac80bedac05c6f282e3cdaf3afb65420fd024ac94435cabe6e18d1 \
-    --hash=sha256:dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232 \
+    --hash=sha256:dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232
     # via requests
 whitenoise==5.2.0 \
     --hash=sha256:05ce0be39ad85740a78750c86a93485c40f08ad8c62a6006de0233765996e5c7 \
-    --hash=sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d \
+    --hash=sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d
     # via -r requirements.in
 zipp==3.1.0 \
     --hash=sha256:aa36550ff0c0b7ef7fa639055d797116ee891440eac1a56f378e2d3179e0320b \
-    --hash=sha256:c599e4d75c98f6798c509911d08a22e6c021d074469042177c8c86fb92eefd96 \
+    --hash=sha256:c599e4d75c98f6798c509911d08a22e6c021d074469042177c8c86fb92eefd96
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 setuptools==50.3.0 \
     --hash=sha256:39060a59d91cf5cf403fa3bacbb52df4205a8c3585e0b9ba4b30e0e19d4c4b18 \
-    --hash=sha256:c77b3920663a435c9450d9d971c48f5a7478fca8881b2cd2564e59f970f03536 \
+    --hash=sha256:c77b3920663a435c9450d9d971c48f5a7478fca8881b2cd2564e59f970f03536
     # via gunicorn

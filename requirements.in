@@ -1,4 +1,4 @@
-Django==3.0.10
+Django==3.0.14
 django-contact-form[akismet]==1.8.1
 django-csp==3.6
 dj-database-url==0.5.0
