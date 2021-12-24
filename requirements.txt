@@ -36,13 +36,13 @@ django-flashpolicies==1.13 \
     --hash=sha256:39c7c50828aec2a45f59d76ba308ddfe172057bb52584d43c1cfbec7f4e2ca54 \
     --hash=sha256:f56a25a7b37897def2c94ae17292c9624fe02a680adf6c6fcddd042be78bac07
     # via -r requirements.in
-django-widget-tweaks==1.4.8 \
-    --hash=sha256:9f91ca4217199b7671971d3c1f323a2bec71a0c27dec6260b3c006fa541bc489 \
-    --hash=sha256:f80bff4a8a59b278bb277a405a76a8b9a884e4bae7a6c70e78a39c626cd1c836
+django-widget-tweaks==1.4.9 \
+    --hash=sha256:19bcb66a4a9e68493ced04e7124882d753c5be517ed001556f9e35a40147f545 \
+    --hash=sha256:d6c64fbf92cd2df9031f597c1374982233c05a1190d295c39d1c57ce007569c7
     # via -r requirements.in
-django==3.2.7 \
-    --hash=sha256:95b318319d6997bac3595517101ad9cc83fe5672ac498ba48d1a410f47afecd2 \
-    --hash=sha256:e93c93565005b37ddebf2396b4dc4b6913c1838baa82efdfb79acedd5816c240
+django==3.2.10 \
+    --hash=sha256:074e8818b4b40acdc2369e67dcd6555d558329785408dcd25340ee98f1f1d5c4 \
+    --hash=sha256:df6f5eb3c797b27c096d61494507b7634526d4ce8d7c8ca1e57a4fb19c0738a3
     # via
     #   -r requirements.in
     #   django-contact-form
@@ -56,21 +56,25 @@ idna==2.10 \
     --hash=sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6 \
     --hash=sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0
     # via requests
-jinja2==3.0.1 \
-    --hash=sha256:1f06f2da51e7b56b8f238affdd6b4e2c61e39598a378cc49345bc1bd42a978a4 \
-    --hash=sha256:703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4
+importlib-metadata==4.10.0 \
+    --hash=sha256:92a8b58ce734b2a4494878e0ecf7d79ccd7a128b5fc6014c401e0b61f006f0f6 \
+    --hash=sha256:b7cf7d3fef75f1e4c80a96ca660efbd51473d7e8f39b5ab9210febc7809012a4
+    # via markdown
+jinja2==3.0.3 \
+    --hash=sha256:077ce6014f7b40d03b47d1f1ca4b0fc8328a692bd284016f806ed0eaca390ad8 \
+    --hash=sha256:611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7
     # via -r requirements.in
-markdown==3.3.4 \
-    --hash=sha256:31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49 \
-    --hash=sha256:96c3ba1261de2f7547b46a00ea8463832c921d3f9d6aba3f255a6f71386db20c
+markdown==3.3.6 \
+    --hash=sha256:76df8ae32294ec39dcf89340382882dfa12975f87f45c3ed1ecdb1e8cefc7006 \
+    --hash=sha256:9923332318f843411e9932237530df53162e29dc7a4e2b91e35764583c46c9a3
     # via -r requirements.in
 markupsafe==2.0.1 \
     --hash=sha256:594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a \
     --hash=sha256:be98f628055368795d818ebf93da628541e10b75b41c559fdf36d104c5787066
     # via jinja2
-psycopg2-binary==2.9.1 \
-    --hash=sha256:35c4310f8febe41f442d3c65066ca93cccefd75013df3d8c736c5b93ec288140 \
-    --hash=sha256:b0221ca5a9837e040ebf61f48899926b5783668b7807419e4adae8175a31f773
+psycopg2-binary==2.9.2 \
+    --hash=sha256:234b1f48488b2f86aac04fb00cb04e5e9bcb960f34fa8a8e41b73149d581a93b \
+    --hash=sha256:eeee7b18c51d02e49bf1984d7af26e8843fe68e31fa1cbab5366ebdfa1c89ade
     # via -r requirements.in
 pytz==2021.1 \
     --hash=sha256:83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da \
@@ -98,10 +102,14 @@ urllib3==1.26.5 \
     --hash=sha256:753a0374df26658f99d826cfe40394a686d05985786d946fbe4165b5148f5a7c \
     --hash=sha256:a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098
     # via requests
-whitenoise==5.2.0 \
-    --hash=sha256:05ce0be39ad85740a78750c86a93485c40f08ad8c62a6006de0233765996e5c7 \
-    --hash=sha256:05d00198c777028d72d8b0bbd234db605ef6d60e9410125124002518a48e515d
+whitenoise==5.3.0 \
+    --hash=sha256:d234b871b52271ae7ed6d9da47ffe857c76568f11dd30e28e18c5869dbd11e12 \
+    --hash=sha256:d963ef25639d1417e8a247be36e6aedd8c7c6f0a08adcb5a89146980a96b577c
     # via -r requirements.in
+zipp==3.6.0 \
+    --hash=sha256:71c644c5369f4a6e07636f0aa966270449561fcea2e3d6747b8d23efaa9d7832 \
+    --hash=sha256:9fe5ea21568a0a70e50f273397638d39b03353731e6cbbb3fd8502a33fec40bc
+    # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 setuptools==56.0.0 \
