@@ -40,9 +40,9 @@ django-widget-tweaks==1.4.9 \
     --hash=sha256:19bcb66a4a9e68493ced04e7124882d753c5be517ed001556f9e35a40147f545 \
     --hash=sha256:d6c64fbf92cd2df9031f597c1374982233c05a1190d295c39d1c57ce007569c7
     # via -r requirements.in
-django==3.2.11 \
-    --hash=sha256:0a0a37f0b93aef30c4bf3a839c187e1175bcdeb7e177341da0cb7b8194416891 \
-    --hash=sha256:69c94abe5d6b1b088bf475e09b7b74403f943e34da107e798465d2045da27e75
+django==3.2.12 \
+    --hash=sha256:9772e6935703e59e993960832d66a614cf0233a1c5123bc6224ecc6ad69e41e2 \
+    --hash=sha256:9b06c289f9ba3a8abea16c9c9505f25107809fb933676f6c891ded270039d965
     # via
     #   -r requirements.in
     #   django-contact-form
