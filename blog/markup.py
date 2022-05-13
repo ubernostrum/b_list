@@ -13,4 +13,4 @@ def markup(text: str) -> str:
             output_format="html5",
             extensions=["abbr", "codehilite", "fenced_code", "sane_lists"],
         )
-    )
+    ).replace("<span></span>", "")
