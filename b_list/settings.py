@@ -56,7 +56,7 @@ INSTALLED_APPS = (
     "django.contrib.flatpages",
     "django.contrib.staticfiles",
     "blog",
-    "contact_form",
+    "django_contact_form",
     "typogrify",
     "gunicorn",
     "projects",

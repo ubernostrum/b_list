@@ -7,8 +7,8 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 
-from contact_form.forms import AkismetContactForm
-from contact_form.views import ContactFormView
+from django_contact_form.forms import AkismetContactForm
+from django_contact_form.views import ContactFormView
 from flashpolicies.views import no_access
 
 from blog.views import EntryArchiveIndex
@@ -27,7 +27,9 @@ urls = [
     ),
     path(
         "contact/sent/",
-        TemplateView.as_view(template_name="contact_form/contact_form_sent.html"),
+        TemplateView.as_view(
+            template_name="django_contact_form/contact_form_sent.html"
+        ),
         name="contact_form_sent",
     ),
     path("projects/", include("projects.urls")),
