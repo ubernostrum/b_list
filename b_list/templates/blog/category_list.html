@@ -16,20 +16,21 @@
 
 <h1>Entry categories</h1>
 
-<p class="meta">{{ object_list.count }} categor{{ object_list.count|pluralize:"y,ies" }} in use. See also: <a href="{% url 'entries:index' %}">latest entries</a>.</p>
+<p class="meta text-secondary">{{ object_list.count }} categor{{ object_list.count|pluralize:"y,ies" }} in use. See also: <a href="{% url 'entries:index' %}">full archive</a>.</p>
 
 {% for category in object_list %}
 
 <h2>{{ category.title }}</h2>
 
-<p>Latest:</p>
-<ul>
-{% for entry in category.live_entries|slice:"3" %}
-  <li><a href="{{ entry.get_absolute_url }}">{{ entry.title|typogrify }}</a></li>
+<p>{% with category.live_entries.count as entry_count %}<a class="content-title" href="{{ category.get_absolute_url }}">{{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }}</a>{% endwith %}</p>
+
+<p class="text-secondary">Latest entries:</p>
+
+<ul class="content-list list-unstyled">
+  {% for entry in category.live_entries|slice:"3" %}
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"> &mdash; {{ entry.pub_date|date:"F j, Y" }}</span></li>
 {% endfor %}
 </ul>
-
-<p class="list-meta"><a href="{{ category.get_absolute_url }}">{% with category.live_entries.count as entry_count %}See all {{ entry_count|capfirst }} entr{{ entry_count|pluralize:"y,ies" }} in this category</a>{% endwith %}</p>
 
 {% endfor %}
 

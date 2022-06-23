@@ -35,14 +35,16 @@
 
 <h1>Entries published in {{ month|date:"F Y" }}</h1>
 
-<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this month. See also: <a href="{% url 'entries:year' year=month|date:"Y" %}">all entries published in {{ month|date:"Y" }}</a>, <a href="{% url 'entries:index' %}">latest entries</a>.</p>
+<p class="meta text-secondary">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this month. See also: <a href="{% url 'entries:year' year=month|date:"Y" %}">all entries published in {{ month|date:"Y" }}</a>, <a href="{% url 'entries:index' %}">full archive</a>.</p>
 
-{% for entry in object_list %}
-
-<h2>{{ entry.title|typogrify }}</h2>
-{{ entry.body_html|truncatewords_html:"90"|safe }}
-<p class="list-meta">Entry published {{ entry.pub_date|date:"F j, Y" }}. <a href="{{ entry.get_absolute_url }}" rel="bookmark">Read full entry</a>.</p>
-
+{% regroup object_list by pub_date|date:"j" as by_date %}
+{% for day in by_date %}
+<h2>{{ month|date:"F" }} {{ day.grouper }}</h2>
+<ul class="content-list list-unstyled">
+  {% for entry in day.list %}
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"></li>
+  {% endfor %}
+</ul>
 {% endfor %}
 
 {% endblock %}

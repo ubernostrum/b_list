@@ -34,12 +34,16 @@
 {% load typogrify_tags %}
 
 <h1>Entries published in {{ year|date:"Y" }}</h1>
-<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this year. See also: <a href="{% url 'entries:index' %}">latest entries</a>.</p>
+<p class="meta text-secondary">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published in this year. See also: <a href="{% url 'entries:index' %}">full archive</a>.</p>
 
-<ul>
-  {% for entry in object_list %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
+{% regroup object_list by pub_date|date:"F" as by_date %}
+{% for month in by_date %}
+<h2>{{ month.grouper }}</h2>
+<ul class="content-list list-unstyled">
+  {% for entry in month.list %}
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"> &mdash; {{ entry.pub_date|date:"F j" }}</span></li>
   {% endfor %}
 </ul>
+{% endfor %}
 
 {% endblock %}

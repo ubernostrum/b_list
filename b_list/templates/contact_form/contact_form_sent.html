@@ -8,7 +8,7 @@
       href="{{ protocol }}://{{ site }}{% url 'contact_form_sent' %}">
 {% endblock %}
 
-{% block bodyclass %}contact{% endblock %}
+{% block contact-nav-class %}active{% endblock %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
 
 <h1>Message sent</h1>
 
-<p class="meta">See also: <a href="/about/">about the author</a>, <a href="{% url 'entries:index' %}">weblog index</a>.</p>
+<p class="meta text-secondary">See also: <a href="/about/">about the author</a>, <a href="{% url 'entries:index' %}">weblog index</a>.</p>
 
 {% filter markup %}
 

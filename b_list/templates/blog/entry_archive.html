@@ -1,7 +1,7 @@
 {% extends "blog/base_blog.html" %}
 
 
-{% block title %}Latest entries{% endblock %}
+{% block title %}Weblog archive{% endblock %}
 
 {% block headlinks %}
   <link rel="canonical"
@@ -12,14 +12,22 @@
 
 {% load static typogrify_tags %}
 
-<h1>Latest entries</h1>
+<h1>Weblog archive</h1>
 
-<p class="meta">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of weblog entries</a>.</p>
+<p class="meta text-secondary">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of weblog entries</a>.</p>
 
-<ul>
-  {% for entry in latest|slice:"20" %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
+{% filter typogrify %}
+<p>I've been keeping this blog semi-regularly since 2006 and have posted {{ latest|length }} entries in that time. Here they all are, though you might find what you want more easily browsing them <a href="{% url 'categories:index' %}">by category</a>.</p>
+{% endfilter %}
+
+{% regroup latest by pub_date|date:"Y" as by_date %}
+{% for year in by_date %}
+<h2>{{ year.grouper }}</h2>
+<ul class="content-list list-unstyled">
+  {% for entry in year.list %}
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"> &mdash; {{ entry.pub_date|date:"F j" }}</span></li>
   {% endfor %}
 </ul>
+{% endfor %}
 
 {% endblock %}

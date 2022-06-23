@@ -14,7 +14,7 @@
 {% load static typogrify_tags %}
 
 <h1>Hi.</h1>
-<p class="meta">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> weblog feed</a>, <a href="/about/colophon/">about this site</a>.</p>
+<p class="meta text-secondary">See also: <a href="/feeds/entries/" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> weblog feed</a>, <a href="/about/colophon/">about this site</a>.</p>
 
 {% filter typogrify %}
 <p>I'm James, a software developer living in California. I mostly work
@@ -30,11 +30,12 @@ content from time to time</a>. You can find out
 more <a href="/about/">about me</a>, or <a href="/contact/">get in
 touch</a>, if you'd like.</p>  {% endfilter %}
 
-<p class="list-meta"></p>
+<p class="list-meta">
+
 <h2>Latest weblog entries</h2>
-<ul>
+<ul class="content-list list-unstyled">
   {% for entry in latest|slice:"5" %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"> &mdash; {{ entry.pub_date|date:"F j, Y" }}<span></li>
   {% endfor %}
 </ul>
 

@@ -24,13 +24,17 @@
 
 {% with object.live_entries.all as entries %}
 
-<p class="meta">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="{% url 'feeds:category' slug=object.slug %}" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'categories:index' %}">list of all entry categories</a>.</p>
+<p class="meta text-secondary">{{ entries.count }} entr{{ entries.count|pluralize:"y,ies" }} in this category. See also: <a href="{% url 'feeds:category' slug=object.slug %}" type="application/atom+xml" rel="alternate"><img src="{% static "b-list/img/feed-icon-10x10.png" %}" alt="Feed icon"> feed of entries in this category</a>, <a href="{% url 'categories:index' %}">list of all entry categories</a>.</p>
 
-<ul>
-  {% for entry in entries %}
-  <li><a href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a>, published {{ entry.pub_date|date:"F j, Y" }}.</li>
+{% regroup entries by pub_date|date:"Y" as by_date %}
+{% for year in by_date %}
+<h2>{{ year.grouper }}</h2>
+<ul class="content-list list-unstyled">
+  {% for entry in year.list %}
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-secondary"> &mdash; {{ entry.pub_date|date:"F j" }}</span></li>
   {% endfor %}
 </ul>
+{% endfor %}
 
 {% endwith %}
 
