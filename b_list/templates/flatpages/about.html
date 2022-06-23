@@ -17,7 +17,7 @@
 
 <h1>{{ flatpage.title|typogrify }}</h1>
 
-<p class="meta text-secondary">{% block flatpage_about %}See also: <a href="{% url 'contact_form' %}">contact me</a>, <a href="https://twitter.com/ubernostrum">tweet at me</a>, <a href="/about/colophon/">about this site</a>, <a href="{% url 'entries:index' %}">weblog</a>.{% endblock %}</p>
+<p class="meta text-secondary">{% block flatpage_about %}See also: <a href="{% url 'django_contact_form' %}">contact me</a>, <a href="https://twitter.com/ubernostrum">tweet at me</a>, <a href="/about/colophon/">about this site</a>, <a href="{% url 'entries:index' %}">weblog</a>.{% endblock %}</p>
 
 {{ flatpage.content|markup }}
 

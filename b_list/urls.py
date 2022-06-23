@@ -23,14 +23,14 @@ urls = [
     path(
         "contact/",
         ContactFormView.as_view(form_class=AkismetContactForm),
-        name="contact_form",
+        name="django_contact_form",
     ),
     path(
         "contact/sent/",
         TemplateView.as_view(
             template_name="django_contact_form/contact_form_sent.html"
         ),
-        name="contact_form_sent",
+        name="django_contact_form_sent",
     ),
     path("projects/", include("projects.urls")),
     path("feeds/", include("blog.urls.feeds", namespace="feeds")),
