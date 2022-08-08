@@ -11,6 +11,12 @@ def markup(text: str) -> str:
         markdown(
             text,
             output_format="html5",
-            extensions=["abbr", "codehilite", "fenced_code", "sane_lists"],
+            extensions=[
+                "abbr",
+                "codehilite",
+                "fenced_code",
+                "sane_lists",
+                "md_in_html",
+            ],
         )
     )
