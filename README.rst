@@ -13,7 +13,7 @@ include *everything* -- some settings are specified via environment
 variables, for example -- and is designed with my personal needs in
 mind.
 
-I run on Django 3.0 and Python 3.8; other Django and/or Python
+I run on Django 3.2 and Python 3.10; other Django and/or Python
 versions may work, but are not tested or supported. In fact, this
 project as a whole is not really "supported" except insofar as I'm
 personally interested in having my own site work.
