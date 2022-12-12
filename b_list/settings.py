@@ -1,7 +1,10 @@
 import os
 
-import dj_database_url
+import environ
+import structlog
 
+
+env = environ.Env(DEBUG=(bool, False))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -9,10 +12,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Basic Django settings.
 # ------------------------------------------------------------------------------
 
-DEBUG = bool(int(os.getenv("DJANGO_DEBUG", 0)))
+DEBUG = env("DEBUG")
 
-DATABASES = {}
-DATABASES["default"] = dj_database_url.config()
+DATABASES = {"default": env.db()}
 DATABASES["default"]["CONN_MAX_AGE"] = 500
 
 TEMPLATES = [
@@ -33,6 +35,7 @@ TEMPLATES = [
 ]
 
 MIDDLEWARE = (
+    "django_structlog.middlewares.RequestMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "csp.middleware.CSPMiddleware",
@@ -46,7 +49,7 @@ MIDDLEWARE = (
     "django.contrib.flatpages.middleware.FlatpageFallbackMiddleware",
 )
 
-INSTALLED_APPS = (
+CONTRIB_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -55,41 +58,76 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.flatpages",
     "django.contrib.staticfiles",
-    "blog",
+]
+
+THIRD_PARTY_APPS = [
     "django_contact_form",
-    "typogrify",
     "gunicorn",
-    "projects",
+    "typogrify",
     "widget_tweaks",
-)
+]
+
+LOCAL_APPS = [
+    "blog",
+    "projects",
+]
+
+INSTALLED_APPS = CONTRIB_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 AUTHENTICATION_BACKENDS = ("django.contrib.auth.backends.ModelBackend",)
+
+ALLOWED_HOSTS = ["*"]
+ROOT_URLCONF = "b_list.urls"
+SECRET_KEY = env.str("SECRET_KEY")
+WSGI_APPLICATION = "b_list.wsgi.application"
+
+
+# Logging with structlog.
+# ------------------------------------------------------------------------------
 
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "formatters": {"simple": {"format": "%(levelname)s %(message)s"}},
-    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
+    "formatters": {
+        "plain_console": {
+            "()": structlog.stdlib.ProcessorFormatter,
+            "processor": structlog.dev.ConsoleRenderer(),
+        },
+    },
     "handlers": {
-        "mail_admins": {
-            "level": "ERROR",
-            "filters": ["require_debug_false"],
-            "class": "django.utils.log.AdminEmailHandler",
-        }
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "plain_console",
+        },
     },
     "loggers": {
-        "django.request": {
-            "handlers": ["mail_admins"],
-            "level": "ERROR",
-            "propagate": True,
-        }
+        "django_structlog": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
+        "b_list": {
+            "handlers": ["console"],
+            "level": "INFO",
+        },
     },
 }
 
-ALLOWED_HOSTS = ["*"]
-ROOT_URLCONF = "b_list.urls"
-SECRET_KEY = os.environ["SECRET_KEY"]
-WSGI_APPLICATION = "b_list.wsgi.application"
+structlog.configure(
+    processors=[
+        structlog.contextvars.merge_contextvars,
+        structlog.stdlib.filter_by_level,
+        structlog.processors.TimeStamper(fmt="iso"),
+        structlog.stdlib.add_logger_name,
+        structlog.stdlib.add_log_level,
+        structlog.stdlib.PositionalArgumentsFormatter(),
+        structlog.processors.StackInfoRenderer(),
+        structlog.processors.format_exc_info,
+        structlog.processors.UnicodeDecoder(),
+        structlog.stdlib.ProcessorFormatter.wrap_for_formatter,
+    ],
+    logger_factory=structlog.stdlib.LoggerFactory(),
+    cache_logger_on_first_use=True,
+)
 
 
 # Email.
@@ -98,9 +136,9 @@ WSGI_APPLICATION = "b_list.wsgi.application"
 DEFAULT_FROM_EMAIL = "django@b-list.org"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST = os.environ["EMAIL_HOST"]
-EMAIL_HOST_PASSWORD = os.environ["EMAIL_HOST_PASSWORD"]
-EMAIL_HOST_USER = os.environ["EMAIL_HOST_USER"]
+EMAIL_HOST = env.str("EMAIL_HOST")
+EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER = env.str("EMAIL_HOST_USER")
 
 
 # Static files.
@@ -131,7 +169,7 @@ SECURE_SSL_REDIRECT = not DEBUG
 X_FRAME_OPTIONS = "DENY"
 
 
-# CSP.
+# Content Security Policy, via django-csp.
 # ------------------------------------------------------------------------------
 
 CSP_SELF = "'self'"
@@ -141,12 +179,7 @@ CSP_NONE = ["'none'"]
 CSP_FONT_SRC = [CSP_SELF]
 CSP_FORM_ACTION = [CSP_SELF]
 CSP_IMG_SRC = [CSP_SELF, "https://github.com", CSP_DATA]
-CSP_SCRIPT_SRC = [
-    CSP_SELF,
-    "https://code.jquery.com",
-    "https://cdn.jsdelivr.net",
-    "https://stackpath.bootstrapcdn.com",
-]
+CSP_SCRIPT_SRC = [CSP_SELF]
 CSP_STYLE_SRC = [CSP_SELF]
 CSP_REQUIRE_SRI_FOR = ["script", "style"]
 
@@ -161,7 +194,7 @@ CSP_WORKER_SRC = CSP_NONE
 # Miscellaneous settings.
 # ------------------------------------------------------------------------------
 
-ADMINS = (("James Bennett", os.environ["MANAGER_EMAIL"]),)
+ADMINS = (("James Bennett", env.str("MANAGER_EMAIL")),)
 MANAGERS = ADMINS
 
 LANGUAGE_CODE = "en-us"
