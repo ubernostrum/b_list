@@ -17,6 +17,8 @@ DEBUG = env("DEBUG")
 DATABASES = {"default": env.db()}
 DATABASES["default"]["CONN_MAX_AGE"] = 500
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
