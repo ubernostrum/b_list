@@ -34,13 +34,19 @@ class Project(models.Model):
 
     """
 
-    HIDDEN_STATUS = 0
-    PUBLIC_STATUS = 1
-    STATUS_CHOICES = ((HIDDEN_STATUS, "Hidden"), (PUBLIC_STATUS, "Public"))
+    class Status(models.IntegerChoices):
+        """
+        Enum representing possible values for a project's
+        publication status.
+
+        """
+
+        HIDDEN = 0, "Hidden"
+        PUBLIC = 1, "Public"
 
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(unique=True)
-    status = models.IntegerField(choices=STATUS_CHOICES, default=PUBLIC_STATUS)
+    status = models.IntegerField(choices=Status.choices, default=Status.PUBLIC)
     description = models.TextField()
 
     package_link = models.URLField(
@@ -82,19 +88,18 @@ class Version(models.Model):
 
     """
 
-    PLANNING_STATUS = 1
-    PRE_ALPHA_STATUS = 2
-    ALPHA_STATUS = 3
-    BETA_STATUS = 4
-    STABLE_STATUS = 5
+    class Stability(models.IntegerChoices):
+        """
+        Enum representing possible values for the stability of a
+        version.
 
-    STATUS_CHOICES = (
-        (PLANNING_STATUS, "Planning"),
-        (PRE_ALPHA_STATUS, "Pre-Alpha"),
-        (ALPHA_STATUS, "Alpha"),
-        (BETA_STATUS, "Beta"),
-        (STABLE_STATUS, "Stable"),
-    )
+        """
+
+        PLANNING = 1, "Planning"
+        PRE_ALPHA = 2, "Pre-Alpha"
+        ALPHA = 3, "Alpha"
+        BETA = 4, "Beta"
+        STABLE = 5, "Stable"
 
     project = models.ForeignKey(
         Project, related_name="versions", on_delete=models.CASCADE
@@ -102,7 +107,7 @@ class Version(models.Model):
     version = models.CharField(max_length=255)
     is_latest = models.BooleanField(default=False)
 
-    status = models.IntegerField(choices=STATUS_CHOICES, default=STABLE_STATUS)
+    status = models.IntegerField(choices=Stability.choices, default=Stability.STABLE)
     license = models.ForeignKey(License, on_delete=models.CASCADE)
     release_date = models.DateField(default=datetime.date.today)
 

@@ -13,7 +13,7 @@ class ProjectQuerySet(models.QuerySet):
         Return only Projects with 'public' status.
 
         """
-        return self.filter(status=self.model.PUBLIC_STATUS)
+        return self.filter(status=self.model.Status.PUBLIC)
 
 
 class VersionQuerySet(models.QuerySet):
@@ -28,7 +28,7 @@ class VersionQuerySet(models.QuerySet):
         Return only Versions with 'stable' status.
 
         """
-        return self.filter(status=self.model.STABLE_STATUS)
+        return self.filter(status=self.model.Stability.STABLE)
 
 
 class VersionManager(models.Manager):

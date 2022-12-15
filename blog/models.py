@@ -17,7 +17,7 @@ class LiveEntryManager(models.Manager):
         return (
             super(LiveEntryManager, self)
             .get_queryset()
-            .filter(status=self.model.LIVE_STATUS)
+            .filter(status=self.model.Status.LIVE)
         )
 
 
@@ -27,20 +27,22 @@ class Entry(models.Model):
 
     """
 
-    LIVE_STATUS = 1
-    DRAFT_STATUS = 2
-    HIDDEN_STATUS = 3
-    STATUS_CHOICES = (
-        (LIVE_STATUS, "Live"),
-        (DRAFT_STATUS, "Draft"),
-        (HIDDEN_STATUS, "Hidden"),
-    )
+    class Status(models.IntegerChoices):
+        """
+        Enum reprsenting possible values for an entry's
+        publication status.
+
+        """
+
+        LIVE = 1, "Live"
+        DRAFT = 2, "Draft"
+        HIDDEN = 3, "Hidden"
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     pub_date = models.DateTimeField("Date posted", default=datetime.datetime.now)
     updated_date = models.DateTimeField(blank=True, editable=False)
     slug = models.SlugField(unique_for_date="pub_date")
-    status = models.IntegerField(choices=STATUS_CHOICES, default=LIVE_STATUS)
+    status = models.IntegerField(choices=Status.choices, default=Status.LIVE)
     title = models.CharField(max_length=250)
 
     body = models.TextField()
@@ -109,6 +111,6 @@ class Category(models.Model):
         )
 
     def _get_live_entries(self) -> models.QuerySet:
-        return self.entry_set.filter(status=Entry.LIVE_STATUS)
+        return self.entry_set.filter(status=Entry.Status.LIVE)
 
     live_entries = property(_get_live_entries)

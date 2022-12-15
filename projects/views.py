@@ -47,7 +47,7 @@ class VersionDetail(VersionMixin, generic.DetailView):
             queryset = self.get_queryset()
 
         queryset = queryset.filter(
-            project__slug=project_slug, project__status=Project.PUBLIC_STATUS
+            project__slug=project_slug, project__status=Project.Status.PUBLIC
         )
         return super().get_object(queryset)
 
@@ -62,7 +62,7 @@ class LatestVersionsList(VersionMixin, generic.ListView):
     template_name = "projects/latest_versions.html"
     version_filter_kwargs = {
         "is_latest": True,
-        "project__status": Project.PUBLIC_STATUS,
+        "project__status": Project.Status.PUBLIC,
     }
 
     def get_queryset(self) -> models.QuerySet:
