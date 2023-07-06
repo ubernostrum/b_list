@@ -1,5 +1,5 @@
 akismet==1.2.1
-Django==3.2.19
+Django==3.2.20
 django-contact-form==2.0.1
 django-csp==3.7
 django-environ==0.9.0
