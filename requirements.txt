@@ -188,9 +188,9 @@ psycopg2-binary==2.9.5 \
     --hash=sha256:e72c91bda9880f097c8aa3601a2c0de6c708763ba8128006151f496ca9065935 \
     --hash=sha256:f95b8aca2703d6a30249f83f4fe6a9abf2e627aa892a5caaab2267d56be7ab69
     # via -r requirements.in
-pygments==2.13.0 \
-    --hash=sha256:56a8508ae95f98e2b9bdf93a6be5ae3f7d8af858b43e02c5a2ff083726be40c1 \
-    --hash=sha256:f643f331ab57ba3c9d89212ee4a2dabc6e94f117cf4eefde99a0574720d14c42
+pygments==2.15.0 \
+    --hash=sha256:77a3299119af881904cd5ecd1ac6a66214b6e9bed1f2db16993b54adede64094 \
+    --hash=sha256:f7e36cffc4c517fbc252861b9a6e4644ca0e5abadf9a113c72d1358ad09b9500
     # via -r requirements.in
 pytz==2022.6 \
     --hash=sha256:222439474e9c98fced559f1709d89e6c9cbf8d79c794ff3eb9f8800064291427 \
