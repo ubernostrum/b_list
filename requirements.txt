@@ -22,9 +22,9 @@ charset-normalizer==2.1.1 \
     --hash=sha256:5a3d016c7c547f69d6f81fb0db9449ce888b418b5b9952cc5e6e66843e9dd845 \
     --hash=sha256:83e9a75d1911279afd89352c68b45348559d1fc0506b054b346651b5e7fee29f
     # via requests
-django==3.2.22 \
-    --hash=sha256:83b6d66b06e484807d778263fdc7f9186d4dc1862fcfa6507830446ac6b060ba \
-    --hash=sha256:c5e7b668025a6e06cad9ba6d4de1fd1a21212acebb51ea34abb400c6e4d33430
+django==3.2.23 \
+    --hash=sha256:82968f3640e29ef4a773af2c28448f5f7a08d001c6ac05b32d02aeee6509508b \
+    --hash=sha256:d48608d5f62f2c1e260986835db089fa3b79d6f58510881d316b8d88345ae6e1
     # via
     #   -r requirements.in
     #   django-contact-form
