@@ -24,9 +24,9 @@ certifi==2024.2.2 \
     # via
     #   httpcore
     #   httpx
-django==3.2.25 \
-    --hash=sha256:7ca38a78654aee72378594d63e51636c04b8e28574f5505dff630895b5472777 \
-    --hash=sha256:a52ea7fcf280b16f7b739cec38fa6d3f8953a5456986944c3ca97e79882b4e38
+django==4.2.11 \
+    --hash=sha256:6e6ff3db2d8dd0c986b4eec8554c8e4f919b5c1ff62a5b4390c17aff2ed6e5c4 \
+    --hash=sha256:ddc24a0a8280a0430baa37aff11f28574720af05888c62b7cfe71d219f4599d3
     # via
     #   -r requirements.in
     #   django-contact-form
@@ -243,10 +243,6 @@ python-ipware==2.0.2 \
     --hash=sha256:3a94fd073b93e12b13617e291f13eda3495d3ba68b580e3e30174ea84ac63041 \
     --hash=sha256:86e30cc3af62cec42284dedd49c8a14e436e73c96433c8645ec0b476ff4ad7ec
     # via django-ipware
-pytz==2024.1 \
-    --hash=sha256:2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812 \
-    --hash=sha256:328171f4e3623139da4983451950b28e95ac706e13f3f2630a879749e7a8b319
-    # via django
 smartypants==2.0.1 \
     --hash=sha256:8db97f7cbdf08d15b158a86037cd9e116b4cf37703d24e0419a0d64ca5808f0d
     # via
