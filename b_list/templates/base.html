@@ -12,7 +12,7 @@
 <html lang="en" class="h-100">
 <head>
   <meta charset="utf-8">
-  <meta name="theme-color" content="#0066cc">
+  <meta name="theme-color" content="#052c65">
   <title>{% block title %}{% endblock %}</title>
   <!--
    The meta viewport tag helps mobile-phone and tablet browsers:
@@ -33,9 +33,9 @@
    for all the details.
   -->
   <link
-    href="{% static "b-list/css/b-list-20220624.css" %}"
+    href="{% static "b-list/css/b-list-20240326.css" %}"
     rel="stylesheet"
-    integrity="sha256-qadBmnla7cqfGKixfBLwmPvvSxWhJcB+0JdRtLl+Cek=">
+    integrity="sha256-/7Khdl1T9eGWcGYwsaPONtcrEk9cx6yKHS83UmIij/U=">
 {% block extrahead %}{% endblock %}
   <!--
    This is my RSS (technically, Atom 1.0) feed. Putting this link here helps
@@ -69,35 +69,52 @@
   <div class="skippy visually-hidden-focusable overflow-hidden">
     <a href="#content">Skip to content</a>
   </div>
-  <header class="text-bg-primary fixed-top">
-    <div class="container-md">
-      <nav id="navbar-nav" class="col-md-8 mx-auto navbar navbar-expand-md navbar-dark bd-navbar">
+  <header class="text-bg-primary text-light border-bottom border-top border-5 border-primary fixed-top">
+    <div class="container">
+      <nav id="navbar-nav" class="navbar navbar-expand-md bd-navbar navbar-dark col-md-8">
         <a class="navbar-brand" href="/">James Bennett</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-	    <li class="nav-item" id="contact-link"><a class="nav-link {% block contact-nav-class %}{% endblock %}" href="/contact/">Contact</a></li>
-	    <li class="nav-item" id="projects-link"><a class="nav-link {% block projects-nav-class %}{% endblock %}" href="/projects/">Projects</a></li>
-	    <li class="nav-item" id="weblog-link"><a class="nav-link {% block weblog-nav-class %}{% endblock %}" href="/weblog/">Weblog</a></li>
+	    <li class="nav-item" id="contact-link">
+              <a aria-current="{% block contact-nav-current %}false{% endblock %}"
+                 class="nav-link {% block contact-nav-class %}{% endblock %}"
+                 href="/contact/">
+                Contact
+              </a>
+            </li>
+	    <li class="nav-item"id="projects-link">
+              <a aria-current="{% block projects-nav-current %}false{% endblock %}"
+                 class="nav-link {% block projects-nav-class %}{% endblock %}"
+                 href="/projects/">
+                Projects
+              </a>
+            </li>
+	    <li class="nav-item" id="weblog-link">
+              <a aria-current="{% block weblog-nav-current %}false{% endblock %}"
+                 class="nav-link {% block weblog-nav-class %}{% endblock %}"
+                 href="/weblog/">
+                Weblog
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
     </div>
   </header>
   
-  <div id="content" class="container-md">
-    <!-- These classes are used by the Bootstrap CSS framework to control layout. -->
-    <div class="col-md-8 mx-auto">
+  <main id="content" class="container">
+    <div class="col-md-8">
       {% block content %}{% endblock %}
     </div>
-  </div>
+  </main>
 
   <footer class="footer py-4 text-bg-primary mt-auto">
     <div class="container">
-      <p class="col-md-8 mx-auto">Copyright © 2006-{% now "Y" %} <a class="link-light" href="/about/">James Bennett</a>, a software developer living in California. Opinions expressed here are solely those of the author.</p>
-      <p class="col-md-8 mx-auto">
+      <p class="col-md-8">Copyright © 2006-{% now "Y" %} <a class="link-light" href="/about/">James Bennett</a>, a software developer living in California. Opinions expressed here are solely those of the author.</p>
+      <p class="col-md-8">
         Find me elsewhere: <svg xmlns="http://www.w3.org/2000/svg" class="bi" width="1em" height="1em" viewBox="0 0 448 512" fill="currentColor" focusable="false" aria-hidden="true"><path d="M224 32c124 0 224 103 224 230 0 101-64 188-153 218h-4c-8 0-12-7-12-12 0-8 1-31 1-62 0-21-8-36-16-43 50-6 103-25 103-113 0-25-9-46-23-62 2-6 10-29-2-61h-5c-8 0-27 3-57 24-18-5-37-8-56-8s-38 3-56 8c-30-21-49-24-57-24h-5c-12 32-4 55-2 61-14 16-23 37-23 62 0 88 52 107 102 113-6 6-12 16-14 31-6 3-16 6-26 6-13 0-28-5-39-25 0 0-13-22-35-24-2 0-21 0-1 14 0 0 15 8 25 34 0 0 10 33 53 33 7 0 14 0 22-2v39c0 5-3 11-11 11h-4C64 450 0 364 0 262 0 135 100 32 224 32z"></path></svg>&nbsp;<a class="link-light" href="https://github.com/ubernostrum">GitHub</a>
         |
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mastodon" viewBox="0 0 16 16">
