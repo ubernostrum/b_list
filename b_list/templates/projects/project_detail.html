@@ -3,17 +3,28 @@
 
 {% block opengraph %}
   <!--
-      OpenGraph metadata which define how links to this page
+      OpenGraph metadata tags which define how links to this page
       will be displayed on social media and other services which
       support OpenGraph. See https://ogp.me for details.
   -->
   <meta name="og:type" content="object">
   <meta name="og:locale" content="en_US">
-  <meta name="og:image" content="{% static "b-list/img/og.jpg" %}">
+  <meta name="og:image" content="{{ protocol }}://{{ site }}{% static "b-list/img/og.jpg" %}">
   <meta name="og:site_name" content="James Bennett">
   <meta name="og:title" content="{{ object.name }}">
   <meta name="og:url" content="{{ protocol }}://{{ site }}{% url 'projects:detail' slug=object.slug %}">
   <meta name="og:description" content="{{ object.description|truncatewords:"20" }}">
+
+  <!--
+      Some sites/systems only read the Twitter version of the
+      metadata, so it's repeated here for them.
+  -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="{{ site }}">
+  <meta property="twitter:url" content="{{ protocol }}://{{ site }}{% url 'projects:detail' slug=object.slug %}">
+  <meta name="twitter:title" content="{{ object.name }}">
+  <meta name="twitter:description" content="{{ object.description|truncatewords:"20" }}">
+  <meta name="twitter:image" content="{{ protocol }}://{{ site }}{% static "b-list/img/og.jpg" %}">
 {% endblock %}
 {% block title %}{{ object.name }}{% endblock %}
 

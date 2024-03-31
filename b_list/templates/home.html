@@ -9,11 +9,21 @@
   -->
   <meta name="og:type" content="website">
   <meta name="og:locale" content="en_US">
-  <meta name="og:image" content="{% static "b-list/img/og.jpg" %}">
+  <meta name="og:image" content="{{ protocol }}://{{ site }}{% static "b-list/img/og.jpg" %}">
   <meta name="og:site_name" content="James Bennett">
   <meta name="og:title" content="Home">
   <meta name="og:url" content="{{ protocol }}://{{ site }}">
   <meta name="og:description" content="I'm James, a software developer living in California.">
+  <!--
+      Some sites/systems only read the Twitter version of the
+      metadata, so it's repeated here for them.
+  -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="{{ site }}">
+  <meta property="twitter:url" content="{{ protocol }}://{{ site }}">
+  <meta name="twitter:title" content="Home">
+  <meta name="twitter:description" content="I'm James, a software developer living in California.">
+  <meta name="twitter:image" content="{{ protocol }}://{{ site }}{% static "b-list/img/og.jpg" %}">
 {% endblock %}
 {% block title %}James Bennett{% endblock %}
 
