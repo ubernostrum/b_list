@@ -1,5 +1,20 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% block opengraph %}
+  <!--
+      OpenGraph metadata which define how links to this page
+      will be displayed on social media and other services which
+      support OpenGraph. See https://ogp.me for details.
+  -->
+  <meta name="og:type" content="website">
+  <meta name="og:locale" content="en_US">
+  <meta name="og:image" content="{% static "b-list/img/og.jpg" %}">
+  <meta name="og:site_name" content="James Bennett">
+  <meta name="og:title" content="Home">
+  <meta name="og:url" content="{{ protocol }}://{{ site }}">
+  <meta name="og:description" content="I'm James, a software developer living in California.">
+{% endblock %}
 {% block title %}James Bennett{% endblock %}
 
 {% block headlinks %}
