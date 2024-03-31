@@ -1,6 +1,20 @@
 {% extends "blog/base_blog.html" %}
+{% load static %}
 
-
+{% block opengraph %}
+  <!--
+      OpenGraph metadata which define how links to this page
+      will be displayed on social media and other services which
+      support OpenGraph. See https://ogp.me for details.
+  -->
+  <meta name="og:type" content="article">
+  <meta name="og:locale" content="en_US">
+  <meta name="og:image" content="{% static "b-list/img/og.jpg" %}">
+  <meta name="og:site_name" content="James Bennett">
+  <meta name="og:title" content="{{ object.title }}">
+  <meta name="og:url" content="{{ protocol }}://{{ site }}{{ object.get_absolute_url }}">
+  <meta name="og:description" content="{{ object.body|truncatewords:"20" }}">
+{% endblock %}
 {% block title %}{{ object.title }}{% endblock %}
 
 
