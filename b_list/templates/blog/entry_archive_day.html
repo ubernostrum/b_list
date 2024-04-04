@@ -38,7 +38,7 @@
 Entries published on {{ day|date:"F j, Y" }}
 </h1>
 
-<p class="meta">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published on this date. See also: <a href="{% url 'entries:month' year=day|date:"Y" month=day|date:"b"  %}">all entries published in {{ day|date:"F Y" }}</a>, <a href="{% url 'entries:index' %}">full archive</a>.</p>
+<p class="meta text-light-emphasis">{{ object_list.count }} entr{{ object_list.count|pluralize:"y,ies" }} published on this date. See also: <a href="{% url 'entries:month' year=day|date:"Y" month=day|date:"b"  %}">all entries published in {{ day|date:"F Y" }}</a>, <a href="{% url 'entries:index' %}">full archive</a>.</p>
 
 
 {% for entry in object_list %}
