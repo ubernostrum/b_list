@@ -1,0 +1,30 @@
+[project]
+name = "b_list"
+version = "2024.6.0"
+description = "The code powering https://www.b-list.org/"
+authors = [
+    {name = "James Bennett"},
+]
+dependencies = [
+    "Django~=4.2",
+    "django-contact-form[akismet]",
+    "django-csp",
+    "django-environ",
+    "django-structlog",
+    "django-widget-tweaks",
+    "gunicorn",
+    "Jinja2",
+    "Markdown",
+    "psycopg2-binary",
+    "Pygments",
+    "smartypants",
+    "typogrify",
+    "whitenoise",
+]
+requires-python = ">=3.12.0"
+readme = "README.md"
+license = {text = "BSD"}
+
+
+[tool.pdm]
+distribution = false

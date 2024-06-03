@@ -4,3 +4,4 @@ __pycache__
 .env
 .python-version
 b_list/staticfiles*
+.pdm-python

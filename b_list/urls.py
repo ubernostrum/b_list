@@ -9,7 +9,6 @@ from django.views.generic import TemplateView
 
 from django_contact_form.forms import AkismetContactForm
 from django_contact_form.views import ContactFormView
-from flashpolicies.views import no_access
 
 from blog.views import EntryArchiveIndex
 
@@ -36,7 +35,6 @@ urls = [
     path("feeds/", include("blog.urls.feeds", namespace="feeds")),
     path("weblog/categories/", include("blog.urls.categories", namespace="categories")),
     path("weblog/", include("blog.urls.entries", namespace="entries")),
-    path("crossdomain.xml", no_access),
 ]
 
 
