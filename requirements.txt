@@ -10,13 +10,13 @@ anyio==4.4.0 \
 asgiref==3.8.1 \
     --hash=sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47 \
     --hash=sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590
-certifi==2024.7.4 \
-    --hash=sha256:5a1e7645bc0ec61a09e26c36f6106dd4cf40c6db3a1fb6352b0244e7fb057c7b \
-    --hash=sha256:c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90
+certifi==2024.6.2 \
+    --hash=sha256:3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516 \
+    --hash=sha256:ddc6c8ce995e6987e7faf5e3f1b02b302836a0e5d98ece18392cb1a36c72ad56
 django==4.2.13 \
     --hash=sha256:837e3cf1f6c31347a1396a3f6b65688f2b4bb4a11c580dcb628b5afe527b68a5 \
     --hash=sha256:a17fcba2aad3fc7d46fdb23215095dbbd64e6174bf4589171e732b18b07e426a
-django-contact-form==5.0.1 \
+django-contact-form[akismet]==5.0.1 \
     --hash=sha256:45e3dada08c1a56e63a4ab75fe616ca9c528a69a840f946da23dd3cd9a80dc39 \
     --hash=sha256:f7b5c01404f08badc28a7b31aed5df11539b2a5c00a7a6596c0b9faf3743808d
 django-csp==3.8 \
@@ -106,6 +106,6 @@ typogrify==2.0.7 \
 tzdata==2024.1; sys_platform == "win32" \
     --hash=sha256:2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd \
     --hash=sha256:9068bc196136463f5245e51efda838afa15aaeca9903f49050dfa2679db4d252
-whitenoise==6.6.0 \
-    --hash=sha256:8998f7370973447fac1e8ef6e8ded2c5209a7b1f67c1012866dbcd09681c3251 \
-    --hash=sha256:b1f9db9bf67dc183484d760b99f4080185633136a273a03f6436034a41064146
+whitenoise==6.7.0 \
+    --hash=sha256:58c7a6cd811e275a6c91af22e96e87da0b1109e9a53bb7464116ef4c963bf636 \
+    --hash=sha256:a1ae85e01fdc9815d12fa33f17765bc132ed2c54fa76daf9e39e879dd93566f6
