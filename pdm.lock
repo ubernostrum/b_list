@@ -57,18 +57,18 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2024.12.14"
+version = "2025.1.31"
 requires_python = ">=3.6"
 summary = "Python package for providing Mozilla's CA Bundle."
 groups = ["default"]
 files = [
-    {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
-    {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
+    {file = "certifi-2025.1.31-py3-none-any.whl", hash = "sha256:ca78db4565a652026a4db2bcdf68f2fb589ea80d0be70e03929ed730746b84fe"},
+    {file = "certifi-2025.1.31.tar.gz", hash = "sha256:3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"},
 ]
 
 [[package]]
 name = "django"
-version = "4.2.18"
+version = "4.2.20"
 requires_python = ">=3.8"
 summary = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 groups = ["default"]
@@ -79,13 +79,13 @@ dependencies = [
     "tzdata; sys_platform == \"win32\"",
 ]
 files = [
-    {file = "Django-4.2.18-py3-none-any.whl", hash = "sha256:ba52eff7e228f1c775d5b0db2ba53d8c49d2f8bfe6ca0234df6b7dd12fb25b19"},
-    {file = "Django-4.2.18.tar.gz", hash = "sha256:52ae8eacf635617c0f13b44f749e5ea13dc34262819b2cc8c8636abb08d82c4b"},
+    {file = "Django-4.2.20-py3-none-any.whl", hash = "sha256:213381b6e4405f5c8703fffc29cd719efdf189dec60c67c04f76272b3dc845b9"},
+    {file = "Django-4.2.20.tar.gz", hash = "sha256:92bac5b4432a64532abb73b2ac27203f485e40225d2640a7fbef2b62b876e789"},
 ]
 
 [[package]]
 name = "django-contact-form"
-version = "5.1.1"
+version = "5.1.2"
 requires_python = ">=3.9"
 summary = "A generic contact-form application for Django."
 groups = ["default"]
@@ -93,24 +93,24 @@ dependencies = [
     "Django>=4.2",
 ]
 files = [
-    {file = "django_contact_form-5.1.1-py3-none-any.whl", hash = "sha256:7ba4c61a50c24b2ad78cd6e60c34da80033bcd082f32d1f9c33e6753352b11f0"},
-    {file = "django_contact_form-5.1.1.tar.gz", hash = "sha256:3d90f7662f266927f219757dbb3b807647e02e44284be5376f819760eed21c81"},
+    {file = "django_contact_form-5.1.2-py3-none-any.whl", hash = "sha256:e859bf5f0868330ec1eec1d7a0c1fa3dae880417dbcf4ee8f0dc82589948b749"},
+    {file = "django_contact_form-5.1.2.tar.gz", hash = "sha256:144a31b25a834dea715ed9a4400e11aa5555ba4f09a96fda395296c1b4a529cf"},
 ]
 
 [[package]]
 name = "django-contact-form"
-version = "5.1.1"
+version = "5.1.2"
 extras = ["akismet"]
 requires_python = ">=3.9"
 summary = "A generic contact-form application for Django."
 groups = ["default"]
 dependencies = [
     "akismet>=24.5.0",
-    "django-contact-form==5.1.1",
+    "django-contact-form==5.1.2",
 ]
 files = [
-    {file = "django_contact_form-5.1.1-py3-none-any.whl", hash = "sha256:7ba4c61a50c24b2ad78cd6e60c34da80033bcd082f32d1f9c33e6753352b11f0"},
-    {file = "django_contact_form-5.1.1.tar.gz", hash = "sha256:3d90f7662f266927f219757dbb3b807647e02e44284be5376f819760eed21c81"},
+    {file = "django_contact_form-5.1.2-py3-none-any.whl", hash = "sha256:e859bf5f0868330ec1eec1d7a0c1fa3dae880417dbcf4ee8f0dc82589948b749"},
+    {file = "django_contact_form-5.1.2.tar.gz", hash = "sha256:144a31b25a834dea715ed9a4400e11aa5555ba4f09a96fda395296c1b4a529cf"},
 ]
 
 [[package]]
@@ -153,7 +153,7 @@ files = [
 
 [[package]]
 name = "django-structlog"
-version = "9.0.0"
+version = "9.0.1"
 requires_python = ">=3.9"
 summary = "Structured Logging for Django"
 groups = ["default"]
@@ -164,8 +164,8 @@ dependencies = [
     "structlog>=21.4.0",
 ]
 files = [
-    {file = "django_structlog-9.0.0-py3-none-any.whl", hash = "sha256:8c32097b3f09b2727b746d6cdf4f50565c62fd040b3a0c98cb731de0b380b854"},
-    {file = "django_structlog-9.0.0.tar.gz", hash = "sha256:0ada1ac0fa4e90a499fc9ce22fc164830304e7219cab12d3b5ef9c2f2967ff5b"},
+    {file = "django_structlog-9.0.1-py3-none-any.whl", hash = "sha256:6f9ed724af2b122158384c3e7ab892cab776930afde2aa564c1a1cd7869f27fa"},
+    {file = "django_structlog-9.0.1.tar.gz", hash = "sha256:eb19bafa837345c62f294ded315c6a12523e16d29b4ba69d9e6ce57c7b0d2925"},
 ]
 
 [[package]]
@@ -254,7 +254,7 @@ files = [
 
 [[package]]
 name = "jinja2"
-version = "3.1.5"
+version = "3.1.6"
 requires_python = ">=3.7"
 summary = "A very fast and expressive template engine."
 groups = ["default"]
@@ -262,8 +262,8 @@ dependencies = [
     "MarkupSafe>=2.0",
 ]
 files = [
-    {file = "jinja2-3.1.5-py3-none-any.whl", hash = "sha256:aba0f4dc9ed8013c424088f68a5c226f7d6097ed89b246d7749c2ec4175c6adb"},
-    {file = "jinja2-3.1.5.tar.gz", hash = "sha256:8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb"},
+    {file = "jinja2-3.1.6-py3-none-any.whl", hash = "sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"},
+    {file = "jinja2-3.1.6.tar.gz", hash = "sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d"},
 ]
 
 [[package]]
@@ -436,11 +436,11 @@ files = [
 
 [[package]]
 name = "whitenoise"
-version = "6.8.2"
+version = "6.9.0"
 requires_python = ">=3.9"
 summary = "Radically simplified static file serving for WSGI applications"
 groups = ["default"]
 files = [
-    {file = "whitenoise-6.8.2-py3-none-any.whl", hash = "sha256:df12dce147a043d1956d81d288c6f0044147c6d2ab9726e5772ac50fb45d2280"},
-    {file = "whitenoise-6.8.2.tar.gz", hash = "sha256:486bd7267a375fa9650b136daaec156ac572971acc8bf99add90817a530dd1d4"},
+    {file = "whitenoise-6.9.0-py3-none-any.whl", hash = "sha256:c8a489049b7ee9889617bb4c274a153f3d979e8f51d2efd0f5b403caf41c57df"},
+    {file = "whitenoise-6.9.0.tar.gz", hash = "sha256:8c4a7c9d384694990c26f3047e118c691557481d624f069b7f7752a2f735d609"},
 ]
