@@ -57,13 +57,13 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2025.1.31"
+version = "2025.4.26"
 requires_python = ">=3.6"
 summary = "Python package for providing Mozilla's CA Bundle."
 groups = ["default"]
 files = [
-    {file = "certifi-2025.1.31-py3-none-any.whl", hash = "sha256:ca78db4565a652026a4db2bcdf68f2fb589ea80d0be70e03929ed730746b84fe"},
-    {file = "certifi-2025.1.31.tar.gz", hash = "sha256:3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"},
+    {file = "certifi-2025.4.26-py3-none-any.whl", hash = "sha256:30350364dfe371162649852c63336a15c70c6510c2ad5015b21c2345311805f3"},
+    {file = "certifi-2025.4.26.tar.gz", hash = "sha256:0a816057ea3cdefcef70270d2c515e4506bbc954f417fa5ade2021213bb8f0c6"},
 ]
 
 [[package]]
@@ -85,32 +85,32 @@ files = [
 
 [[package]]
 name = "django-contact-form"
-version = "5.1.2"
+version = "5.2.0"
 requires_python = ">=3.9"
 summary = "A generic contact-form application for Django."
 groups = ["default"]
 dependencies = [
-    "Django>=4.2",
+    "Django!=5.0.*,>=4.2",
 ]
 files = [
-    {file = "django_contact_form-5.1.2-py3-none-any.whl", hash = "sha256:e859bf5f0868330ec1eec1d7a0c1fa3dae880417dbcf4ee8f0dc82589948b749"},
-    {file = "django_contact_form-5.1.2.tar.gz", hash = "sha256:144a31b25a834dea715ed9a4400e11aa5555ba4f09a96fda395296c1b4a529cf"},
+    {file = "django_contact_form-5.2.0-py3-none-any.whl", hash = "sha256:400a5cb08d884230921c92c49b7a67db9e03e90860c60b5f35e23c16ba2db31e"},
+    {file = "django_contact_form-5.2.0.tar.gz", hash = "sha256:56a481891eeebdd5fcde247307437c919e4076e3d0e9eb3eb2a2194652943624"},
 ]
 
 [[package]]
 name = "django-contact-form"
-version = "5.1.2"
+version = "5.2.0"
 extras = ["akismet"]
 requires_python = ">=3.9"
 summary = "A generic contact-form application for Django."
 groups = ["default"]
 dependencies = [
     "akismet>=24.5.0",
-    "django-contact-form==5.1.2",
+    "django-contact-form==5.2.0",
 ]
 files = [
-    {file = "django_contact_form-5.1.2-py3-none-any.whl", hash = "sha256:e859bf5f0868330ec1eec1d7a0c1fa3dae880417dbcf4ee8f0dc82589948b749"},
-    {file = "django_contact_form-5.1.2.tar.gz", hash = "sha256:144a31b25a834dea715ed9a4400e11aa5555ba4f09a96fda395296c1b4a529cf"},
+    {file = "django_contact_form-5.2.0-py3-none-any.whl", hash = "sha256:400a5cb08d884230921c92c49b7a67db9e03e90860c60b5f35e23c16ba2db31e"},
+    {file = "django_contact_form-5.2.0.tar.gz", hash = "sha256:56a481891eeebdd5fcde247307437c919e4076e3d0e9eb3eb2a2194652943624"},
 ]
 
 [[package]]
@@ -154,7 +154,7 @@ files = [
 
 [[package]]
 name = "django-structlog"
-version = "9.0.1"
+version = "9.1.1"
 requires_python = ">=3.9"
 summary = "Structured Logging for Django"
 groups = ["default"]
@@ -165,8 +165,8 @@ dependencies = [
     "structlog>=21.4.0",
 ]
 files = [
-    {file = "django_structlog-9.0.1-py3-none-any.whl", hash = "sha256:6f9ed724af2b122158384c3e7ab892cab776930afde2aa564c1a1cd7869f27fa"},
-    {file = "django_structlog-9.0.1.tar.gz", hash = "sha256:eb19bafa837345c62f294ded315c6a12523e16d29b4ba69d9e6ce57c7b0d2925"},
+    {file = "django_structlog-9.1.1-py3-none-any.whl", hash = "sha256:5b6ac3abdf6549e94ccb35160b1f10266f1627c3ac77844571235a08a1ddae66"},
+    {file = "django_structlog-9.1.1.tar.gz", hash = "sha256:14342c6c824581f1e063c88a8bc52314cd67995a3bd4a4fc8c27ea37ccd78947"},
 ]
 
 [[package]]
@@ -269,16 +269,16 @@ files = [
 
 [[package]]
 name = "markdown"
-version = "3.7"
-requires_python = ">=3.8"
+version = "3.8"
+requires_python = ">=3.9"
 summary = "Python implementation of John Gruber's Markdown."
 groups = ["default"]
 dependencies = [
     "importlib-metadata>=4.4; python_version < \"3.10\"",
 ]
 files = [
-    {file = "Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803"},
-    {file = "markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"},
+    {file = "markdown-3.8-py3-none-any.whl", hash = "sha256:794a929b79c5af141ef5ab0f2f642d0f7b1872981250230e72682346f7cc90dc"},
+    {file = "markdown-3.8.tar.gz", hash = "sha256:7df81e63f0df5c4b24b7d156eb81e4690595239b7d70937d0409f1b0de319c6f"},
 ]
 
 [[package]]
