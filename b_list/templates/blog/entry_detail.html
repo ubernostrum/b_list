@@ -2,12 +2,6 @@
 {% load static %}
 
 {% block opengraph %}
-  <meta name="description" content="{{ object.body|truncatewords:"20" }}">
-  <!--
-      OpenGraph metadata tags which define how links to this page
-      will be displayed on social media and other services which
-      support OpenGraph. See https://ogp.me for details.
-  -->
   <meta name="og:type" content="article">
   <meta name="og:locale" content="en_US">
   <meta name="og:image" content="{{ protocol }}://{{ site }}{% static "b-list/img/og.jpg" %}">
@@ -15,6 +9,8 @@
   <meta name="og:title" content="{{ object.title }}">
   <meta name="og:url" content="{{ protocol }}://{{ site }}{{ object.get_absolute_url }}">
   <meta name="og:description" content="{{ object.body|truncatewords:"20" }}">
+  <meta name="article:published_time" content="{{ object.pub_date|date:"c" }}">
+  <meta name="description" content="{{ object.body|truncatewords:"20" }}">
   <!--
       Some sites/systems only read the Twitter version of the
       metadata, so it's repeated here for them.
