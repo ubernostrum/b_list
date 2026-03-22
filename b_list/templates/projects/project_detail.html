@@ -44,9 +44,11 @@
   {{ object.name }}
 </h1>
 
-<p class="meta text-light-emphasis">See also: <a href="{% url 'projects:list' %}">Full list of projects</a>.</p>
+<p class="meta text-light-emphasis">See also: <a href="{% url 'projects:list' %}">full list of projects</a></p>
 
 {{ object.description|markup }}
+
+<p>If you believe you've found a security issue in this project, please <a href="/contact/">contact me privately</a> to report it.</p>
 
 {% with object.latest_version as latest_version %}
 

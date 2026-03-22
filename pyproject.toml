@@ -6,7 +6,7 @@ authors = [
     {name = "James Bennett"},
 ]
 dependencies = [
-    "Django~=4.2",
+    "Django~=5.2",
     "django-contact-form[akismet]",
     "django-csp",
     "django-environ",
