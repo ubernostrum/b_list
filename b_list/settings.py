@@ -204,6 +204,7 @@ USE_I18N = False
 USE_L10N = False
 
 TIME_ZONE = "America/Chicago"
+USE_TZ = False
 
 SITE_ID = 1
 
