@@ -2,6 +2,5 @@
 __pycache__
 *.sh
 .env
-.python-version
 b_list/staticfiles*
 .pdm-python
