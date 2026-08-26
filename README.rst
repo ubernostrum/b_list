@@ -13,10 +13,11 @@ include *everything* -- some settings are specified via environment
 variables, for example -- and is designed with my personal needs in
 mind.
 
-I run on Django 4.2 and Python 3.12; other Django and/or Python
-versions may work, but are not tested or supported. In fact, this
-project as a whole is not really "supported" except insofar as I'm
-personally interested in having my own site work.
+I typically run on the latest Django LTS release and the latest Python
+feature release; other Django and/or Python versions may work, but are
+not tested or supported. In fact, this project as a whole is not
+really "supported" except insofar as I'm personally interested in
+having my own site work.
 
 As such, if you find yourself needing to modify anything here -- and
 ideally you should just set up your own project if you want to use any
