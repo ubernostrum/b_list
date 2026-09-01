@@ -45,7 +45,7 @@ class EntriesFeed(Feed):
         return item.updated_date
 
     def items(self) -> typing.List[Entry]:
-        return Entry.live.all()[:15]
+        return Entry.live.order_by("-updated_date")[:15]
 
     def item_link(self, item: Entry) -> str:
         return "https://{}{}".format(current_site.domain, item.get_absolute_url())
@@ -62,7 +62,7 @@ class CategoryFeed(EntriesFeed):
         return Category.objects.get(slug=slug)
 
     def items(self, obj: Category) -> typing.List[Category]:
-        return obj.live_entries[:15]
+        return obj.live_entries.order_by("-updated_date")[:15]
 
     def link(self, obj: Category) -> str:
         return self.item_link(obj)

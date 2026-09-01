@@ -64,6 +64,12 @@ class Entry(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    def has_update(self):
+        return (
+            self.updated_date > self.pub_date
+            and (self.updated_date - self.pub_date).days > 1
+        )
+
     def save(self, *args, **kwargs):
         self.body_html = markup(self.body)
         if self.excerpt:

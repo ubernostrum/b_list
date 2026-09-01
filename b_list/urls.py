@@ -10,7 +10,7 @@ from django.views.generic import TemplateView
 from django_contact_form.forms import AkismetContactForm
 from django_contact_form.views import ContactFormView
 
-from blog.views import EntryArchiveIndex
+from blog.views import LatestByUpdated
 
 # Redirect views which prevent an older URL scheme from 404'ing.
 from . import views
@@ -18,7 +18,7 @@ from . import views
 
 urls = [
     path("admin/", admin.site.urls),
-    path("", EntryArchiveIndex.as_view(template_name="home.html"), name="home"),
+    path("", LatestByUpdated.as_view(template_name="home.html"), name="home"),
     path(
         "contact/",
         ContactFormView.as_view(form_class=AkismetContactForm),

@@ -12,6 +12,10 @@ class CategoryMixin:
     model = Category
 
 
+class LatestByUpdated(EntryMixin, generic.ArchiveIndexView):
+    date_field = "updated_date"
+
+
 class EntryArchiveIndex(EntryMixin, generic.ArchiveIndexView):
     pass
 

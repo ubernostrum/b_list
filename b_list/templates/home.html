@@ -63,7 +63,7 @@ touch</a>, if you'd like.</p>  {% endfilter %}
 <h2>Latest weblog entries</h2>
 <ul class="content-list list-unstyled">
   {% for entry in latest|slice:"5" %}
-  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-light-emphasis"> &mdash; {{ entry.pub_date|date:"F j, Y" }}<span></li>
+  <li><a class="content-title" href="{{ entry.get_absolute_url }}" rel="bookmark">{{ entry.title|typogrify }}</a> <span class="content-date text-light-emphasis"> &mdash; {{ entry.pub_date|date:"F j, Y" }} {% if entry.has_update %}(updated {{ entry.updated_date|date:"F j, Y" }}){% endif %}<span></li>
   {% endfor %}
 </ul>
 
