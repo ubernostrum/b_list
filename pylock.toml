@@ -12,11 +12,11 @@ created-by = "pdm"
 
 [[packages]]
 name = "certifi"
-version = "2026.10.19"
+version = "2026.10.23"
 requires-python = ">=3.7"
-sdist = {name = "certifi-2026.10.19.tar.gz", url = "https://files.pythonhosted.org/packages/a6/bd/1436c50cc46699de0230fbaacc1d1de7bfec413176099949e9d5112e88f2/certifi-2026.10.19.tar.gz", hashes = {sha256 = "035c1e85572b141bf1c3a3eff0e33a8eb74917522f2559075ff8d2fea780a1ae"}}
+sdist = {name = "certifi-2026.10.23.tar.gz", url = "https://files.pythonhosted.org/packages/fd/11/b524cbd9bbdaca58608e4cf4053fd463417549e1959fa8d3aa18319f9555/certifi-2026.10.23.tar.gz", hashes = {sha256 = "a9895e6e2758b371e0545e321a3a8fd1fcfd9829ada8824a936dfb16aaaf36cd"}}
 wheels = [
-    {name = "certifi-2026.10.19-py3-none-any.whl",url = "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl",hashes = {sha256 = "42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b"}},
+    {name = "certifi-2026.10.23-py3-none-any.whl",url = "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",hashes = {sha256 = "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1"}},
 ]
 marker = "\"default\" in dependency_groups"
 
@@ -72,17 +72,17 @@ dependencies = [
 
 [[packages]]
 name = "django-structlog"
-version = "10.1.0"
-requires-python = ">=3.10"
-sdist = {name = "django_structlog-10.1.0.tar.gz", url = "https://files.pythonhosted.org/packages/6d/18/5826ed903a3ab7c9e21092a2519b477dba1ef48ab9dfee5e101c91ee2663/django_structlog-10.1.0.tar.gz", hashes = {sha256 = "812f61dea873e559511f42c0f3a7cdc36d4472f6cc15460565a97e5cbe06a76d"}}
+version = "11.0.0"
+requires-python = ">=3.11"
+sdist = {name = "django_structlog-11.0.0.tar.gz", url = "https://files.pythonhosted.org/packages/cc/50/ddd2c8f0477b964d162271bbf28c5a3d1f98f4b6fbf72b2527a1ea76f86e/django_structlog-11.0.0.tar.gz", hashes = {sha256 = "4ec327f669543b05941c5a1ba7881e9a400493a0098d71a5dce0fc7b0ce97558"}}
 wheels = [
-    {name = "django_structlog-10.1.0-py3-none-any.whl",url = "https://files.pythonhosted.org/packages/04/96/c635a5b295246f9dd73098986694b2011968a502d5221261a1b0f439586b/django_structlog-10.1.0-py3-none-any.whl",hashes = {sha256 = "450842bfb03887fc14469570769e515d22ea67d753848a25cdbd05405382c090"}},
+    {name = "django_structlog-11.0.0-py3-none-any.whl",url = "https://files.pythonhosted.org/packages/ff/36/6e3742fd9c8f151563e08f5be19128497ad31110ca719d7a08cf94b5e95e/django_structlog-11.0.0-py3-none-any.whl",hashes = {sha256 = "4f5d3822bfa1667fec6324e959b6824a4c3fd975b0d5143f0b5bec3ec97f3463"}},
 ]
 marker = "\"default\" in dependency_groups"
 
 [packages.tool.pdm]
 dependencies = [
-    "django>=4.2",
+    "django>=5.2",
     "structlog>=21.4.0",
     "asgiref>=3.6.0",
     "django-ipware>=6.0.2",
